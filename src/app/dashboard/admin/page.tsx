@@ -1046,12 +1046,12 @@ export default function AdminDashboard() {
                             </td>
 
                             <td className="p-5">
-                              {account.role === "vendor" ? (
-                                <Status value={str(account.subscriptionPlan)} />
-                              ) : (
-                                "Ã¢â‚¬â€"
-                              )}
-                            </td>
+  {account.role === "vendor" ? (
+    <Status value={str(account.subscriptionPlan).toLowerCase()} />
+  ) : (
+    <span className="text-gray-400">—</span>
+  )}
+</td>
 
                             <td className="p-5">
                               <Status
