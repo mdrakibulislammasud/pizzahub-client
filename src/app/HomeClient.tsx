@@ -1,9 +1,10 @@
-
+﻿
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
 
 import AccountMenu from "./AccountMenu";
+import ThemeToggle from './components/ThemeToggle';
 import { usePathname as phUsePathname, useRouter } from "next/navigation";
 import "./menu-layout.css";
 
@@ -511,13 +512,8 @@ export default function HomeClient() {
             </div>
 
             <div className="ph-nav-actions">
-              <Link
-                href="/track-order"
-                className="ph-track-order-home-nav"
-              >
-                <PackageSearch size={17} aria-hidden="true" />
-                Track Order
-              </Link>
+              <ThemeToggle />
+
 
               {authLoading ? (
                 <span className="ph-auth-loading" />
@@ -568,6 +564,7 @@ export default function HomeClient() {
 
           {mobileMenu && (
             <div className="ph-mobile-menu">
+              <div className="ph-mobile-theme-toggle"><ThemeToggle /></div>
       {user && (
         <Link
           href="/favorites"
@@ -586,14 +583,7 @@ export default function HomeClient() {
           My Favorites
         </Link>
       )}
-              <Link
-                href="/track-order"
-                className="ph-track-order-home-mobile"
-                onClick={() => setMobileMenu(false)}
-              >
-                <PackageSearch size={17} aria-hidden="true" />
-                Track Order
-              </Link>
+
 
               {navigation.map((item) => (
                 <a
@@ -705,7 +695,7 @@ export default function HomeClient() {
               >
                 <div className="ph-hero-badge">
                   <Pizza size={19} />
-                  Fresh Ã‚Â· Hot Ã‚Â· Delicious
+                  Fresh Ãƒâ€šÃ‚Â· Hot Ãƒâ€šÃ‚Â· Delicious
                 </div>
 
                 <h1>
@@ -1303,7 +1293,7 @@ export default function HomeClient() {
           </div>
 
           <div className="ph-copyright">
-            © 2026 PizzaHub. All rights reserved.
+            Â© 2026 PizzaHub. All rights reserved.
           </div>
 
         </footer>
@@ -1385,3 +1375,5 @@ function ArrowDownDecoration() {
     </svg>
   );
 }
+
+

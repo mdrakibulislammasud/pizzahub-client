@@ -731,7 +731,7 @@ export default function AdminDashboard() {
 
   return (
     <MotionConfig reducedMotion="user">
-      <div className="min-h-screen bg-[#080808] text-white">
+      <div className="ph-admin-dashboard min-h-screen bg-[#080808] text-white">
         {mobileMenu && (
           <button
             aria-label="Close sidebar"
@@ -1785,3 +1785,6 @@ export default function AdminDashboard() {
     </MotionConfig>
   );
 }
+
+
+

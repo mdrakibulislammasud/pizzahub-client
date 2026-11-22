@@ -1,0 +1,678 @@
+﻿/* ==========================================
+   PIZZAHUB LIGHT THEME
+   Warm cream + dark brown + pizza red
+========================================== */
+
+html.light {
+  color-scheme: light !important;
+
+  --background: #FAF6EE;
+  --foreground: #35251F;
+  --primary: #D9232E;
+
+  --bg-cream: #FAF6EE;
+  --hero-light: #FFFDF8;
+  --hero-cream: #F5EBDD;
+  --bg-card: #FFFFFF;
+  --accent-tint: #FCE9E5;
+
+  --primary-red: #D9232E;
+  --dark-maroon: #FFF8EF;
+  --light-maroon: #B71016;
+  --bottom-wave: #FAF6EE;
+
+  --text-dark: #35251F;
+  --text-muted: #76665E;
+  --text-white: #FFFFFF;
+
+  --ph-black: #FAF6EE;
+  --ph-surface: #FFFDF8;
+  --ph-card: #FFFFFF;
+  --ph-red: #D9232E;
+  --ph-red-light: #EF4148;
+  --ph-border: #E9DCCB;
+  --ph-muted: #76665E;
+
+  background: #FAF6EE !important;
+}
+
+html.light body {
+  background: #FAF6EE !important;
+  color: #35251F !important;
+  color-scheme: light !important;
+}
+
+html.light .ph {
+  background-color: #FAF6EE !important;
+  color: #35251F !important;
+}
+
+/* Navbar */
+
+html.light .ph-header,
+html.light .ph header,
+html.light body > header {
+  background: #FFFDF8 !important;
+  color: #35251F !important;
+  border-bottom: 1px solid #E9DCCB !important;
+  box-shadow: 0 5px 20px rgba(65, 40, 25, 0.07) !important;
+}
+
+html.light .ph-nav {
+  background: transparent !important;
+}
+
+html.light .ph-logo > span:last-child,
+html.light .ph-footer .ph-logo > span:last-child {
+  color: #35251F !important;
+}
+
+/* Common cards and surfaces */
+
+html.light .ph-card,
+html.light .ph-menu-card,
+html.light .ph-featured-card,
+html.light .ph-category-card,
+html.light .ph-footer,
+html.light .ph-mobile-menu {
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
+  border-color: #E9DCCB !important;
+}
+
+/* Typography */
+
+html.light h1,
+html.light h2,
+html.light h3,
+html.light h4,
+html.light h5,
+html.light h6,
+html.light p,
+html.light label,
+html.light .ph-title,
+html.light .ph-description {
+  color: #35251F;
+}
+
+/* Forms */
+
+html.light input,
+html.light textarea,
+html.light select {
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
+  border-color: #DDCDBB !important;
+}
+
+html.light input::placeholder,
+html.light textarea::placeholder {
+  color: #948278 !important;
+}
+
+/* Dashboard surfaces */
+
+html.light main,
+html.light aside,
+html.light section {
+  color: #35251F;
+}
+
+html.light [class*="bg-black"],
+html.light [class*="bg-[#080808"],
+html.light [class*="bg-[#0B0B0B"],
+html.light [class*="bg-[#141414"],
+html.light [class*="bg-[#111111"],
+html.light [class*="bg-[#1A1A1A"] {
+  background-color: #FFFDF8 !important;
+}
+
+html.light [class*="text-white"] {
+  color: #35251F !important;
+}
+
+html.light [class*="border-[#"] {
+  border-color: #E9DCCB !important;
+}
+
+/* Theme toggle */
+
+.ph-theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  border: 1px solid #5A2929;
+  border-radius: 50%;
+  background: #171111;
+  color: #FFD166;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.ph-theme-toggle:hover {
+  transform: translateY(-1px);
+}
+
+html.light .ph-theme-toggle {
+  background: #FFF3D9;
+  color: #A84A16;
+  border-color: #E9DCCB;
+}
+
+.ph-mobile-theme-toggle {
+  display: flex;
+  justify-content: center;
+  padding: 12px;
+}
+
+/* Scrollbar */
+
+html.light ::-webkit-scrollbar-track {
+  background: #FAF6EE;
+}
+
+html.light ::-webkit-scrollbar-thumb {
+  background: #D9B8A5;
+}
+
+/* Selection */
+
+html.light ::selection {
+  background: #D9232E;
+  color: #FFFFFF;
+}
+
+/* FIX: LIGHT MODE TEXT VISIBILITY */
+html.light .ph main > section:not(.ph-hero),
+html.light .ph .ph-section {
+  color: #35251F !important;
+}
+
+html.light .ph main > section:not(.ph-hero) :is(
+  h1, h2, h3, h4, h5, h6,
+  p, li, label, small
+),
+html.light .ph .ph-section :is(
+  h1, h2, h3, h4, h5, h6,
+  p, li, label, small
+) {
+  color: #35251F !important;
+}
+
+/* Keep red heading accents */
+html.light .ph :is(h1, h2, h3, h4, h5, h6) :is(span, em),
+html.light .ph :is(.ph-section-heading, .ph-section-title) :is(span, em) {
+  color: #D9232E !important;
+}
+
+/* Menu and product card text */
+html.light .ph #menu :is(
+  article, article p, article h1, article h2,
+  article h3, article h4, article span,
+  .ph-menu-card, .ph-menu-card p,
+  .ph-menu-card h3, .ph-menu-card span
+) {
+  color: #35251F !important;
+}
+
+/* Keep primary button text white */
+html.light .ph a.ph-button,
+html.light .ph a.ph-button *,
+html.light .ph button.ph-button,
+html.light .ph button.ph-button * {
+  color: #FFFFFF !important;
+}
+
+/* Muted text */
+html.light .ph :is(.ph-muted, .ph-description, .ph-subtitle) {
+  color: #76665E !important;
+}
+
+/* ==========================================
+   FINAL LIGHT MODE TEXT VISIBILITY FIX
+   Must stay at the VERY END of this file
+========================================== */
+
+/* NAVBAR */
+html.light body .ph .ph-header,
+html.light body .ph header,
+html.light body > header {
+  background: #FFFDF8 !important;
+  color: #35251F !important;
+  border-color: #E9DCCB !important;
+}
+
+html.light body .ph .ph-header *,
+html.light body .ph header * {
+  color: #35251F !important;
+}
+
+html.light body .ph .ph-header a:hover,
+html.light body .ph header a:hover,
+html.light body .ph .ph-header nav a:hover,
+html.light body .ph header nav a:hover {
+  color: #D9232E !important;
+}
+
+/* NAVBAR LOGO */
+html.light body .ph .ph-header .ph-logo > span:last-child,
+html.light body .ph header .ph-logo > span:last-child {
+  color: #35251F !important;
+}
+
+html.light body .ph .ph-header .ph-logo > span:last-child em,
+html.light body .ph header .ph-logo > span:last-child em {
+  color: #D9232E !important;
+}
+
+/* MOBILE MENU AND DROPDOWNS */
+html.light body .ph .ph-mobile-menu,
+html.light body .ph .ph-mobile-nav,
+html.light body .ph .ph-nav-dropdown,
+html.light body .ph .ph-user-dropdown {
+  background: #FFFFFF !important;
+  color: #35251F !important;
+  border-color: #E9DCCB !important;
+}
+
+html.light body .ph .ph-mobile-menu *,
+html.light body .ph .ph-mobile-nav *,
+html.light body .ph .ph-nav-dropdown *,
+html.light body .ph .ph-user-dropdown * {
+  color: #35251F !important;
+}
+
+/* FOOTER - ALL TEXT */
+html.light body .ph footer,
+html.light body .ph .ph-footer,
+html.light body > footer {
+  background: #FFF8EF !important;
+  color: #35251F !important;
+  border-color: #E9DCCB !important;
+}
+
+html.light body .ph footer *,
+html.light body .ph .ph-footer *,
+html.light body > footer * {
+  color: #35251F !important;
+}
+
+html.light body .ph .ph-footer .ph-logo > span:last-child {
+  color: #35251F !important;
+}
+
+html.light body .ph .ph-footer .ph-logo > span:last-child em {
+  color: #D9232E !important;
+}
+
+html.light body .ph .ph-footer a:hover {
+  color: #D9232E !important;
+}
+
+html.light body .ph .ph-footer-wave path {
+  fill: #FFF8EF !important;
+}
+
+/* ALL MAIN CONTENT TEXT */
+html.light body .ph main,
+html.light body .ph main * {
+  --text-dark: #35251F;
+  --text-muted: #76665E;
+  --text-white: #35251F;
+}
+
+/* Override old hardcoded white text */
+html.light body .ph main [class*="text-white"],
+html.light body .ph main [style*="color: white"],
+html.light body .ph main [style*="color:#fff"],
+html.light body .ph main [style*="color: #fff"] {
+  color: #35251F !important;
+}
+
+/* Headings, descriptions and labels */
+html.light body .ph main h1,
+html.light body .ph main h2,
+html.light body .ph main h3,
+html.light body .ph main h4,
+html.light body .ph main h5,
+html.light body .ph main h6,
+html.light body .ph main p,
+html.light body .ph main label,
+html.light body .ph main li,
+html.light body .ph main small {
+  color: #35251F !important;
+}
+
+/* Keep red accents */
+html.light body .ph main .ph-accent,
+html.light body .ph main .ph-highlight,
+html.light body .ph main .text-red-500,
+html.light body .ph main .text-red-600,
+html.light body .ph main .text-red-700 {
+  color: #D9232E !important;
+}
+
+/* Keep button text readable */
+html.light body .ph main button,
+html.light body .ph main a.ph-button,
+html.light body .ph main button *,
+html.light body .ph main a.ph-button * {
+  color: #FFFFFF !important;
+}
+
+/* Theme toggle */
+html.light body .ph .ph-theme-toggle,
+html.light body .ph .ph-theme-toggle * {
+  color: #A84A16 !important;
+}
+
+/* Forms */
+html.light body input,
+html.light body textarea,
+html.light body select {
+  color: #35251F !important;
+  background: #FFFFFF !important;
+  border-color: #DDCDBB !important;
+}
+
+
+/* ==========================================
+   PIZZAHUB LIGHT MODE - PREMIUM TEXT COLORS
+========================================== */
+
+/* Main content: stronger readable text */
+html.light body .ph main,
+html.light body .ph main * {
+  opacity: 1 !important;
+}
+
+html.light body .ph main p,
+html.light body .ph main li,
+html.light body .ph main label,
+html.light body .ph main span,
+html.light body .ph main a:not(.ph-button),
+html.light body .ph main div {
+  color: #24130F !important;
+}
+
+/* Headings: PizzaHub deep red */
+html.light body .ph main h1,
+html.light body .ph main h2,
+html.light body .ph main h3,
+html.light body .ph main h4,
+html.light body .ph main h5,
+html.light body .ph main h6 {
+  color: #C8102E !important;
+  opacity: 1 !important;
+}
+
+/* Description and supporting text */
+html.light body .ph main p,
+html.light body .ph main small,
+html.light body .ph main .ph-description,
+html.light body .ph main .ph-subtitle {
+  color: #5C4038 !important;
+}
+
+/* Navbar text */
+html.light body .ph .ph-header *,
+html.light body .ph header * {
+  opacity: 1 !important;
+  color: #24130F !important;
+}
+
+/* Footer text */
+html.light body .ph footer *,
+html.light body .ph .ph-footer * {
+  opacity: 1 !important;
+  color: #24130F !important;
+}
+
+/* Red brand accents */
+html.light body .ph .ph-logo > span:last-child em,
+html.light body .ph .ph-footer .ph-logo > span:last-child em {
+  color: #C8102E !important;
+}
+
+/* Preserve white text on red buttons */
+html.light body .ph main .ph-button,
+html.light body .ph main .ph-button *,
+html.light body .ph .ph-nav-actions > a.ph-button,
+html.light body .ph .ph-nav-actions > a.ph-button * {
+  color: #FFFFFF !important;
+}
+
+/* Keep theme toggle icon */
+html.light body .ph .ph-theme-toggle,
+html.light body .ph .ph-theme-toggle * {
+  color: #A84A16 !important;
+}
+
+
+/* ==========================================
+   PIZZAHUB LIGHT MODE - RED TEXT THEME
+========================================== */
+
+html.light body .ph,
+html.light body .ph * {
+  color: #E51E2B !important;
+}
+
+/* Keep red button labels white for contrast */
+html.light body .ph .ph-button,
+html.light body .ph .ph-button *,
+html.light body .ph button[type="submit"],
+html.light body .ph button[type="submit"] *,
+html.light body .ph .ph-nav-actions > a:last-child,
+html.light body .ph .ph-nav-actions > a:last-child * {
+  color: #FFFFFF !important;
+}
+
+/* Input text */
+html.light body .ph input,
+html.light body .ph textarea,
+html.light body .ph select {
+  color: #B71925 !important;
+}
+
+/* Placeholder */
+html.light body .ph input::placeholder,
+html.light body .ph textarea::placeholder {
+  color: #A94A50 !important;
+}
+
+/* Keep the theme toggle icon visible */
+html.light body .ph .ph-theme-toggle,
+html.light body .ph .ph-theme-toggle * {
+  color: #B71925 !important;
+}
+
+
+/* Keep button text readable */
+html.light body .ph main section button,
+html.light body .ph main section button *,
+html.light body .ph main section .ph-button,
+html.light body .ph main section .ph-button * {
+  color: #FFFFFF !important;
+}
+
+/* Form fields */
+html.light body .ph main section input,
+html.light body .ph main section textarea,
+html.light body .ph main section select {
+  color: #B71925 !important;
+}
+
+
+/* Category section heading and subtitle */
+html.light body .ph #categories h1,
+html.light body .ph #categories h2,
+html.light body .ph #categories h3,
+html.light body .ph #categories p {
+  color: #E51B23 !important;
+}
+
+/* Category cards */
+html.light body .ph #categories .ph-category-card {
+  background: #FFFFFF !important;
+  color: #E51B23 !important;
+  border: 1px solid #E9DCCB !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Category card icons and names */
+html.light body .ph #categories .ph-category-card svg,
+html.light body .ph #categories .ph-category-card span {
+  color: #E51B23 !important;
+  stroke: #E51B23 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+/* Active category */
+html.light body .ph #categories .ph-category-card.ph-category-active {
+  background: #E51B23 !important;
+  color: #FFFFFF !important;
+}
+
+html.light body .ph #categories .ph-category-card.ph-category-active svg,
+html.light body .ph #categories .ph-category-card.ph-category-active span {
+  color: #FFFFFF !important;
+  stroke: #FFFFFF !important;
+}
+
+
+/* LIGHT MODE: RED TEXT ONLY - PRESERVE ALL LAYOUTS */
+
+/* All text inside main content */
+html.light body main :is(
+  h1, h2, h3, h4, h5, h6,
+  p, a, span, li, label, small,
+  strong, em, b, blockquote, figcaption
+) {
+  color: #E51B23 !important;
+}
+
+/* Keep navbar and footer unchanged */
+html.light body header,
+html.light body header *,
+html.light body footer,
+html.light body footer * {
+  color: inherit;
+}
+
+/* Preserve button text contrast */
+html.light body main button,
+html.light body main button *,
+html.light body main [role="button"],
+html.light body main [role="button"] * {
+  color: #FFFFFF !important;
+}
+
+/* Preserve readable form text */
+html.light body main input,
+html.light body main textarea,
+html.light body main select {
+  color: #B71925 !important;
+}
+
+
+/* ADMIN DASHBOARD - LIGHT MODE TEXT VISIBILITY */
+html.light .ph-admin-dashboard h1,
+html.light .ph-admin-dashboard h2,
+html.light .ph-admin-dashboard h3,
+html.light .ph-admin-dashboard h4,
+html.light .ph-admin-dashboard p,
+html.light .ph-admin-dashboard span,
+html.light .ph-admin-dashboard a,
+html.light .ph-admin-dashboard button {
+  color: #35251F !important;
+}
+
+html.light .ph-admin-dashboard .text-white {
+  color: #35251F !important;
+}
+
+
+/* ADMIN DASHBOARD - LIGHT MODE TEXT FIX */
+html.light .ph-admin-dashboard h2,
+html.light .ph-admin-dashboard footer,
+html.light .ph-admin-dashboard footer *,
+html.light .ph-admin-dashboard main button,
+html.light .ph-admin-dashboard main button * {
+  color: #35251F !important;
+}
+
+html.light .ph-admin-dashboard main button svg {
+  color: #E51B23 !important;
+}
+
+
+/* ADMIN DASHBOARD - LIGHT MODE HOVER AND BRAND FIX */
+html.light .ph-admin-dashboard button:hover,
+html.light .ph-admin-dashboard a:hover {
+  background-color: #FCE8E8 !important;
+  border-color: #E51B23 !important;
+  color: #35251F !important;
+}
+
+html.light .ph-admin-dashboard footer {
+  color: #E51B23 !important;
+}
+
+
+/* ADMIN DASHBOARD - LIGHT MODE HOVER AND BRAND FIX */
+html.light .ph-admin-dashboard button:hover,
+html.light .ph-admin-dashboard a:hover {
+  background-color: #FCE8E8 !important;
+  border-color: #E51B23 !important;
+  color: #35251F !important;
+}
+
+html.light .ph-admin-dashboard footer {
+  color: #E51B23 !important;
+}
+
+
+/* ==================================================
+   PIZZAHUB - FINAL LIGHT MODE READABILITY FIX
+   Text and hover only. No layout or spacing changes.
+   ================================================== */
+
+/* Main content: readable dark text */
+html.light body main,
+html.light body main * ,
+html.light body [role="main"],
+html.light body [role="main"] *,
+html.light body .ph-admin-dashboard,
+html.light body .ph-admin-dashboard * {
+  color: #35251F !important;
+}
+
+/* Headings and links: PizzaHub red */
+html.light body main :is(h1,h2,h3,h4,h5,h6,a),
+html.light body [role="main"] :is(h1,h2,h3,h4,h5,h6,a),
+html.light body .ph-admin-dashboard :is(h1,h2,h3,h4,h5,h6,a) {
+  color: #E51B23 !important;
+}
+
+/* Buttons and interactive elements: readable hover */
+html.light body main :is(button,a,[role="button"]):hover,
+html.light body [role="main"] :is(button,a,[role="button"]):hover,
+html.light body .ph-admin-dashboard :is(button,a,[role="button"]):hover {
+  background-color: #FCE8E8 !important;
+  color: #35251F !important;
+}
+
+/* Keep navbar and footer unchanged */
+html.light body header,
+html.light body header *,
+html.light body footer,
+html.light body footer * {
+  color: inherit;
+}
+

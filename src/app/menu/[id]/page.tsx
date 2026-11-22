@@ -1,4 +1,4 @@
-
+﻿
 "use client";
 
 import { useEffect, useState, type FormEvent } from "react";
@@ -6,6 +6,7 @@ import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import { motion, MotionConfig } from "motion/react";
 import { toast } from "sonner";
+import ReviewSection from "../../../components/reviews/ReviewSection";
 
 import {
   ArrowLeft,
@@ -740,6 +741,12 @@ export default function PizzaDetailsPage() {
             </motion.div>
 
           </div>
+
+          <ReviewSection
+            itemId={item._id}
+            vendorId={item.vendorId}
+            user={user}
+          />
 
         </main>
 
