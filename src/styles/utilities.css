@@ -1,0 +1,8 @@
+.ph-container { width: min(100% - 2.5rem, 1280px); margin-inline: auto; }
+.ph-serif { font-family: Georgia, "Times New Roman", serif; }
+.ph-muted { color: var(--ph-muted); }
+.ph-surface { background: var(--ph-card); border: 1px solid var(--ph-border); }
+
+@media (max-width: 640px) {
+  .ph-container { width: min(100% - 1.5rem, 1280px); }
+}

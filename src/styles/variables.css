@@ -1,0 +1,28 @@
+:root {
+  color-scheme: light;
+  --ph-cream: #f8f1e6;
+  --ph-tomato: #c93628;
+  --ph-burgundy: #70251f;
+  --ph-espresso: #35251f;
+  --ph-gold: #e8b85b;
+  --ph-card: #fffaf2;
+  --ph-border: #eadfd0;
+  --ph-muted: #88766a;
+  --ph-muted-surface: #efe5d7;
+  --ph-surface: #fffdf8;
+  --ph-shadow-soft: 0 12px 32px rgb(75 39 23 / 8%);
+  --ph-radius-card: 1.25rem;
+}
+
+@theme inline {
+  --color-background: var(--ph-cream);
+  --color-foreground: var(--ph-espresso);
+  --color-primary: var(--ph-tomato);
+  --color-primary-foreground: #fffaf2;
+  --color-secondary: var(--ph-gold);
+  --color-muted: var(--ph-muted-surface);
+  --color-muted-foreground: var(--ph-muted);
+  --color-border: var(--ph-border);
+  --font-sans: Arial, Helvetica, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+}
