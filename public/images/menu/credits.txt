@@ -1,0 +1,90 @@
+
+File: italian-supreme.jpg
+Original: Supreme pizza.jpg
+Artist: Scott Bauer
+License: Public domain
+License URL:
+Source: https://commons.wikimedia.org/wiki/File:Supreme_pizza.jpg
+Changes: None
+Usage: Development reference photograph
+
+
+File: pepperoni.jpg
+Original: Pepperoni Pizza.jpg
+Artist: Jon Sullivan
+License: Public domain
+License URL:
+Source: https://commons.wikimedia.org/wiki/File:Pepperoni_Pizza.jpg
+Changes: None
+
+
+File: bbq-chicken.jpg
+Original: Chicken BBQ Pizza.jpg
+Artist: <a href="//commons.wikimedia.org/w/index.php?title=User:Cbhavani02&amp;action=edit&amp;redlink=1" class="new" title="User:Cbhavani02 (page does not exist)">Cbhavani02</a>
+License: CC BY-SA 4.0
+License URL: https://creativecommons.org/licenses/by-sa/4.0
+Source: https://commons.wikimedia.org/wiki/File:Chicken_BBQ_Pizza.jpg
+Changes: None
+
+
+File: four-cheese.jpg
+Original: Four cheese pizza.jpg
+Artist: <a href="//commons.wikimedia.org/w/index.php?title=User:Shreya13jain&amp;action=edit&amp;redlink=1" class="new" title="User:Shreya13jain (page does not exist)">Shreya13jain</a>
+License: CC BY-SA 4.0
+License URL: https://creativecommons.org/licenses/by-sa/4.0
+Source: https://commons.wikimedia.org/wiki/File:Four_cheese_pizza.jpg
+Changes: None
+
+
+File: meat-lovers.jpg
+Original: Meat lover's pizza (16803723523).jpg
+Artist: <a rel="nofollow" class="external text" href="https://www.flickr.com/people/7927684@N03">jeffreyw</a>
+License: CC BY 2.0
+License URL: https://creativecommons.org/licenses/by/2.0
+Source: https://commons.wikimedia.org/wiki/File:Meat_lover%27s_pizza_(16803723523).jpg
+Changes: None
+
+
+File: veggie-delight.jpg
+Original: Vege pizza.jpg
+Artist: <a href="//commons.wikimedia.org/wiki/User:FranHogan" title="User:FranHogan">FranHogan</a>
+License: CC BY-SA 4.0
+License URL: https://creativecommons.org/licenses/by-sa/4.0
+Source: https://commons.wikimedia.org/wiki/File:Vege_pizza.jpg
+Changes: None
+
+
+File: spicy-chicken.jpg
+Original: Spicy Chicken Pizza.jpg
+Artist: <a href="//commons.wikimedia.org/w/index.php?title=User:AlekhyaDas&amp;action=edit&amp;redlink=1" class="new" title="User:AlekhyaDas (page does not exist)">AlekhyaDas</a>
+License: CC BY-SA 4.0
+License URL: https://creativecommons.org/licenses/by-sa/4.0
+Source: https://commons.wikimedia.org/wiki/File:Spicy_Chicken_Pizza.jpg
+Changes: None
+
+
+File: mushroom-cheese.jpg
+Original: Pizza with mushroom.jpg
+Artist: <a href="//commons.wikimedia.org/w/index.php?title=User:Zuxra.bmr&amp;action=edit&amp;redlink=1" class="new" title="User:Zuxra.bmr (page does not exist)">Zuxra.bmr</a>
+License: CC0
+License URL: http://creativecommons.org/publicdomain/zero/1.0/deed.en
+Source: https://commons.wikimedia.org/wiki/File:Pizza_with_mushroom.jpg
+Changes: None
+
+
+File: mexican-hot.jpg
+Original: Mexicana Pizza - L'Olivo AUD17 large.jpg
+Artist: Alpha
+License: CC BY-SA 2.0
+License URL: https://creativecommons.org/licenses/by-sa/2.0
+Source: https://commons.wikimedia.org/wiki/File:Mexicana_Pizza_-_L%27Olivo_AUD17_large.jpg
+Changes: None
+
+
+File: chicken-alfredo.jpg
+Original: Chicken Alfredo Pizza (4270373800).jpg
+Artist: <a rel="nofollow" class="external text" href="https://www.flickr.com/people/12549501@N06">Morgan</a> from Montreal, Quebec, Canada
+License: CC BY 2.0
+License URL: https://creativecommons.org/licenses/by/2.0
+Source: https://commons.wikimedia.org/wiki/File:Chicken_Alfredo_Pizza_(4270373800).jpg
+Changes: None
