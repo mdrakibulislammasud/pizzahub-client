@@ -41,6 +41,7 @@ import {
   ShoppingCart,
   Heart,
   PackageCheck,
+  PackageSearch,
 } from "lucide-react";
 
 import { toast } from "sonner";
@@ -514,7 +515,7 @@ export default function HomeClient() {
                 href="/track-order"
                 className="ph-track-order-home-nav"
               >
-                <span aria-hidden="true">??</span>
+                <PackageSearch size={17} aria-hidden="true" />
                 Track Order
               </Link>
 
@@ -590,7 +591,7 @@ export default function HomeClient() {
                 className="ph-track-order-home-mobile"
                 onClick={() => setMobileMenu(false)}
               >
-                <span aria-hidden="true">??</span>
+                <PackageSearch size={17} aria-hidden="true" />
                 Track Order
               </Link>
 
@@ -604,33 +605,31 @@ export default function HomeClient() {
                 </a>
               ))}
 
-              {!authLoading && (
-                user ? (
-        <AccountMenu
-          user={user}
-          logout={logout}
-          logoutLoading={logoutLoading}
-          mobile onNavigate={() => setMobileMenu(false)}
-        />
-      ) : (
-        <>
-          <Link
-            href="/sign-in"
-            className="ph-sign-in"
-            onClick={() => setMobileMenu(false)}
-          >
-            Sign In
-          </Link>
-
-          <Link
-            href="/sign-up"
-            className="ph-sign-in"
-            onClick={() => setMobileMenu(false)}
-          >
-            Sign Up
-          </Link>
-        </>
-      )
+              {user ? (
+                <AccountMenu
+                  user={user}
+                  logout={logout}
+                  logoutLoading={logoutLoading}
+                  mobile
+                  onNavigate={() => setMobileMenu(false)}
+                />
+              ) : (
+                <div className="ph-mobile-auth-links">
+                  <Link
+                    href="/sign-in"
+                    className="ph-sign-in"
+                    onClick={() => setMobileMenu(false)}
+                  >
+                    Sign In
+                  </Link>
+                  <Link
+                    href="/sign-up"
+                    className="ph-sign-up-mobile"
+                    onClick={() => setMobileMenu(false)}
+                  >
+                    Sign Up
+                  </Link>
+                </div>
               )}
 
               <Link

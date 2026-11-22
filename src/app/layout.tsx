@@ -1,4 +1,4 @@
-import DashboardAnalyticsShortcut from "./components/DashboardAnalyticsShortcut";
+﻿import DashboardAnalyticsShortcut from "./components/DashboardAnalyticsShortcut";
 import TrackOrderHomeButton from "./components/TrackOrderHomeButton";
 
 import type { Metadata, Viewport } from "next";
@@ -52,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html
+    <html data-scroll-behavior="smooth"
       lang="en"
       suppressHydrationWarning
       style={{
@@ -97,4 +97,5 @@ export default function RootLayout({
     </html>
   );
 }
+
 

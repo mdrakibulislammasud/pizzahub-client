@@ -106,10 +106,10 @@
     display: block !important;
     width: 100% !important;
     max-width: none !important;
-    min-height: 640px !important;
+    min-height: 620px !important;
     height: auto !important;
     margin: 0 !important;
-    padding: 48px 24px 170px !important;
+    padding: 44px 24px 44px !important;
     background: transparent !important;
     color: #ffffff !important;
   }
@@ -130,10 +130,87 @@
   .ph-hero .ph-hero-actions {
     position: relative;
     z-index: 4;
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    width: 100%;
+    gap: 12px !important;
+    margin-top: 24px !important;
+  }
+
+  .ph-hero .ph-hero-actions > a {
+    width: 100%;
+    min-height: 50px;
+    justify-content: center;
+    margin: 0 !important;
   }
 
   .ph-hero .ph-hero-location {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-top: 20px !important;
     color: rgba(255, 255, 255, 0.9);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  .ph-hero .ph-hero-location svg {
+    flex: 0 0 auto;
+    margin-top: 2px;
+  }
+
+  /* The mobile menu already contains Track Order; hide the fixed desktop shortcut. */
+  .ph-floating-track-order {
+    display: none !important;
+  }
+
+  .ph-mobile-menu {
+    max-height: calc(100dvh - 65px);
+    overflow-y: auto;
+    padding: 16px !important;
+    gap: 14px !important;
+  }
+
+  .ph-mobile-menu > a:not(.ph-button) {
+    display: flex;
+    align-items: center;
+    min-height: 42px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    color: var(--text-dark);
+    font-weight: 600;
+  }
+
+  .ph-mobile-auth-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .ph-mobile-auth-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 46px;
+    padding: 10px 14px;
+    border: 1px solid var(--primary-red);
+    border-radius: 999px;
+    color: var(--primary-red) !important;
+    font-weight: 700;
+  }
+
+  .ph-mobile-auth-links .ph-sign-up-mobile {
+    background: var(--primary-red);
+    color: #fff !important;
+  }
+
+  .ph-mobile-menu > .ph-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
   }
 
   /* Hide floating decorations only on mobile. */
@@ -153,8 +230,43 @@
     padding-right: 18px !important;
   }
 
+  .ph-mobile-auth-links {
+    grid-template-columns: 1fr;
+  }
+
   .ph-hero .ph-hero-content h1 {
     font-size: 36px;
   }
 
+}
+
+/* MOBILE: SHOW COMPLETE PIZZA IMAGES */
+@media (max-width: 767px) {
+
+  .ph-hero .ph-hero-photo {
+    object-fit: contain !important;
+    object-position: center bottom !important;
+    background: #080808 !important;
+  }
+
+  .ph #menu :is(
+    article,
+    .food-card,
+    .ph-card,
+    .ph-food-card,
+    .ph-menu-card,
+    .ph-pizza-card,
+    .ph-product-card
+  ) img {
+    object-fit: contain !important;
+    object-position: center !important;
+    background: #151515 !important;
+  }
+
+  .ph-product-grid .ph-product-image-wrap img,
+  .ph-product-grid .ph-product-image {
+    object-fit: contain !important;
+    object-position: center !important;
+    background: #151515 !important;
+  }
 }

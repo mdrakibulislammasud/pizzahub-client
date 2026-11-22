@@ -1639,3 +1639,40 @@ html {
     transition: none !important;
   }
 }
+
+/* ===== PIZZAHUB: CONSISTENT PIZZA IMAGE RATIO ===== */
+
+.ph .ph-product-image-wrap,
+.ph :is(.ph-card-image, .ph-food-image, .ph-menu-image, .ph-pizza-image, .ph-product-image-wrap) {
+  width: 100% !important;
+  aspect-ratio: 4 / 3 !important;
+  height: auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #151515 !important;
+}
+
+.ph .ph-product-image,
+.ph .ph-product-image-wrap img,
+.ph :is(.ph-card-image, .ph-food-image, .ph-menu-image, .ph-pizza-image) img,
+.ph #menu :is(article, .food-card, .ph-card, .ph-food-card, .ph-menu-card, .ph-pizza-card, .ph-product-card) img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  aspect-ratio: 4 / 3 !important;
+  object-fit: contain !important;
+  object-position: center !important;
+  border-radius: 0 !important;
+}
+
+/* Keep the image area consistent on smaller screens */
+@media (max-width: 767px) {
+  .ph .ph-product-image-wrap,
+  .ph :is(.ph-card-image, .ph-food-image, .ph-menu-image, .ph-pizza-image) {
+    aspect-ratio: 4 / 3 !important;
+  }
+}
+

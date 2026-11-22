@@ -14,6 +14,7 @@ export default function TrackOrderHomeButton() {
     <a
       href="/track-order"
       aria-label="Track your pizza order"
+      className="ph-floating-track-order"
       style={{
         position: "fixed",
         right: "16px",

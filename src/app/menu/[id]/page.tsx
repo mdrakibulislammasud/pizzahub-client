@@ -1,4 +1,4 @@
-﻿
+
 "use client";
 
 import { useEffect, useState, type FormEvent } from "react";
@@ -557,7 +557,7 @@ export default function PizzaDetailsPage() {
                           </p>
                         </div>
 
-                        <div className="flex items-center gap-4">
+                        <div className="flex shrink-0 items-center gap-3 sm:gap-4">
 
                           <button
                             type="button"
@@ -568,9 +568,9 @@ export default function PizzaDetailsPage() {
                                 Math.max(1, current - 1)
                               )
                             }
-                            className="grid h-10 w-10 place-items-center rounded-lg border border-[#5A2020] text-xl font-bold transition hover:bg-[#351010] disabled:cursor-not-allowed disabled:opacity-40"
+                            className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#5A2020] text-xl font-bold transition hover:bg-[#351010] disabled:cursor-not-allowed disabled:opacity-40"
                           >
-                            âˆ’
+                            {"\u2212"}
                           </button>
 
                           <span className="min-w-8 text-center text-xl font-bold tabular-nums">
@@ -586,7 +586,7 @@ export default function PizzaDetailsPage() {
                                 Math.min(99, current + 1)
                               )
                             }
-                            className="grid h-10 w-10 place-items-center rounded-lg border border-[#5A2020] text-xl font-bold transition hover:bg-[#351010] disabled:cursor-not-allowed disabled:opacity-40"
+                            className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#5A2020] text-xl font-bold transition hover:bg-[#351010] disabled:cursor-not-allowed disabled:opacity-40"
                           >
                             +
                           </button>
@@ -681,7 +681,7 @@ export default function PizzaDetailsPage() {
                         </span>
 
                         <span className="font-semibold">
-                          Ã— {quantity}
+                          {"\u00D7"} {quantity}
                         </span>
                       </div>
 
@@ -746,7 +746,7 @@ export default function PizzaDetailsPage() {
         <footer className="mt-12 border-t border-[#351010] bg-[#0B0B0B] px-5 py-8 text-center">
 
           <p>
-            Â© {new Date().getFullYear()} PizzaHub.
+            {"\u2212"}
             All rights reserved.
           </p>
 
