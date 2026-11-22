@@ -1,0 +1,144 @@
+
+.ph #menu [data-ph-menu-grid][data-ph-menu-grid] {
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr)) !important;
+
+  width: 100%;
+  max-width: 1440px;
+
+  margin-inline: auto;
+
+  gap: 24px !important;
+
+  align-items: stretch;
+}
+
+.ph #menu [data-ph-menu-grid] > * {
+  width: 100%;
+  max-width: none !important;
+  min-width: 0;
+}
+
+.ph #menu [data-ph-menu-grid] article {
+  width: 100%;
+  max-width: none !important;
+  height: 100%;
+}
+
+.ph-view-all-wrap {
+  display: flex;
+  justify-content: center;
+
+  width: 100%;
+
+  margin-top: 40px;
+  padding-inline: 20px;
+}
+
+.ph-view-all-button {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 14px;
+
+  min-height: 50px;
+
+  padding: 14px 30px;
+
+  background: #C9151B;
+  color: #FFFFFF !important;
+
+  border: 1px solid #E51B23;
+  border-radius: 9px;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ph-view-all-button:hover {
+  background: #E51B23;
+
+  transform: translateY(-3px);
+
+  box-shadow:
+    0 8px 24px rgba(229, 27, 35, 0.22);
+}
+
+.ph-view-all-button:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 4px;
+}
+
+.ph-browse-page {
+  min-height: 100vh;
+
+  background: #080808;
+  color: #FFFFFF;
+}
+
+.ph-browse-page #menu {
+  min-height: 75vh;
+
+  padding-top: 55px;
+  padding-bottom: 70px;
+}
+
+/* Hide non-menu sections if any remain outside
+   the primary homepage sections. */
+
+.ph-browse-page main > section:not(#menu) {
+  display: none !important;
+}
+
+.ph-menu-loading {
+  display: grid;
+  place-items: center;
+
+  min-height: 65vh;
+
+  background: #080808;
+  color: #FFFFFF;
+}
+
+@media (max-width: 1100px) {
+  .ph #menu [data-ph-menu-grid][data-ph-menu-grid] {
+    grid-template-columns:
+      repeat(3, minmax(0, 1fr)) !important;
+
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  .ph #menu [data-ph-menu-grid][data-ph-menu-grid] {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 14px !important;
+  }
+}
+
+@media (max-width: 420px) {
+  .ph #menu [data-ph-menu-grid][data-ph-menu-grid] {
+    grid-template-columns:
+      minmax(0, 1fr) !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ph-view-all-button {
+    transition: none !important;
+    transform: none !important;
+  }
+}

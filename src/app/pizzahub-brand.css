@@ -1,0 +1,87 @@
+
+/*
+  PizzaHub Identity
+  Dark background + Red & White
+  Responsive vector logo
+*/
+
+.ph-logo {
+  display: inline-flex !important;
+  align-items: center !important;
+  gap: 7px !important;
+  text-decoration: none !important;
+}
+
+/* Replace the old red square and P. */
+
+.ph-logo .ph-logo-icon,
+.ph-brand-mark {
+  display: inline-block !important;
+
+  width: 50px !important;
+  height: 50px !important;
+
+  flex: 0 0 50px !important;
+
+  background-color: transparent !important;
+
+  background-image:
+    url("/images/pizzahub-logo.svg") !important;
+
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  background-size: contain !important;
+
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  color: transparent !important;
+  font-size: 0 !important;
+  line-height: 0 !important;
+
+  overflow: hidden !important;
+}
+
+/* Pizza white, Hub red. */
+
+.ph-logo > span:last-child {
+  color: #FFFFFF !important;
+  font-weight: 800 !important;
+  white-space: nowrap;
+}
+
+.ph-logo > span:last-child em {
+  color: #E51B23 !important;
+  font-style: normal;
+}
+
+/* Footer logo */
+
+.ph-footer .ph-logo {
+  width: fit-content;
+}
+
+.ph-footer .ph-logo > span:last-child {
+  color: #FFFFFF !important;
+}
+
+/* Mobile logo proportions */
+
+@media (max-width: 767px) {
+
+  .ph-logo .ph-logo-icon {
+    width: 43px !important;
+    height: 43px !important;
+    flex-basis: 43px !important;
+  }
+
+  .ph-logo > span:last-child {
+    font-size: clamp(
+      21px,
+      5.5vw,
+      29px
+    ) !important;
+  }
+
+}

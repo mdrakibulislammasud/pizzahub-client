@@ -1,0 +1,535 @@
+
+/* ========================================
+   PIZZAHUB — BLACK & FIERY RED
+======================================== */
+
+.ph #menu {
+  --menu-bg: #121212;
+  --menu-card: #201919;
+  --menu-red: #FF312E;
+  --menu-text: #FFFFFF;
+  --menu-muted: #B6A6A6;
+  --menu-border: #382727;
+
+  position: relative;
+  isolation: isolate;
+
+  width: 100%;
+  min-height: 450px;
+
+  padding: 60px 0;
+
+  background: var(--menu-bg) !important;
+  color: var(--menu-text);
+
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+
+/* REMOVE OLD LEAF PATTERNS */
+
+.ph #menu::before,
+.ph #menu::after {
+  display: none !important;
+  content: none !important;
+}
+
+.ph #menu .ph-leaves,
+.ph #menu .ph-decoration,
+.ph #menu .ph-decorations,
+.ph #menu .ph-pattern {
+  display: none !important;
+}
+
+/* SECTION CONTAINER */
+
+.ph #menu .ph-container {
+  width: 100%;
+  max-width: 1440px;
+
+  margin-inline: auto;
+  padding-inline: 30px;
+}
+
+/* ========================================
+   FEATURED MENU HEADING
+======================================== */
+
+.ph #menu h2 {
+  color: #FFFFFF !important;
+
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(34px, 3.5vw, 54px);
+  font-weight: 800;
+
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.ph #menu h2 span,
+.ph #menu h2 em {
+  color: #FF312E !important;
+}
+
+.ph #menu p {
+  color: #B6A6A6;
+}
+
+/* ========================================
+   SEARCH BAR
+======================================== */
+
+.ph #menu :is(div, label):has(> input) {
+  min-height: 52px;
+
+  background: #201919 !important;
+
+  border: 1px solid #382727 !important;
+  border-radius: 12px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ph #menu input {
+  min-width: 0;
+
+  color: #FFFFFF !important;
+  background: transparent !important;
+
+  outline: none;
+}
+
+.ph #menu input::placeholder {
+  color: #B6A6A6 !important;
+  opacity: 1;
+}
+
+.ph #menu :is(div, label):has(> input) svg {
+  color: #FF312E !important;
+}
+
+.ph #menu :is(div, label):has(> input):focus-within {
+  border-color: #FF312E !important;
+
+  box-shadow:
+    0 0 0 3px rgba(255, 49, 46, 0.08);
+}
+
+/* ========================================
+   CATEGORY FILTER
+======================================== */
+
+.ph #menu select {
+  min-height: 52px;
+
+  padding-inline: 16px;
+
+  color: #FFFFFF !important;
+  background: #201919 !important;
+
+  border: 1px solid #382727 !important;
+  border-radius: 12px;
+
+  color-scheme: dark;
+
+  outline: none;
+  cursor: pointer;
+
+  transition: border-color 0.25s ease;
+}
+
+.ph #menu select:hover,
+.ph #menu select:focus-visible {
+  border-color: #FF312E !important;
+}
+
+.ph #menu select option {
+  color: #FFFFFF;
+  background: #201919;
+}
+
+/* ========================================
+   PRODUCT GRID
+======================================== */
+
+.ph #menu :is(
+  .ph-menu-grid,
+  .ph-food-grid,
+  .ph-product-grid,
+  .ph-pizza-grid,
+  .ph-card-grid,
+  .ph-items-grid,
+  div:has(> article),
+  div:has(> .ph-menu-card),
+  div:has(> .ph-product-card),
+  div:has(> .ph-pizza-card),
+  div:has(> .food-card)
+) {
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(min(100%, 240px), 1fr)
+    ) !important;
+
+  align-items: stretch;
+
+  width: 100%;
+
+  gap: 22px !important;
+
+  margin-top: 30px;
+}
+
+/* ========================================
+   PRODUCT CARDS
+======================================== */
+
+.ph #menu :is(
+  article,
+  .food-card,
+  .ph-menu-card,
+  .ph-pizza-card,
+  .ph-product-card
+) {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  max-width: 310px;
+
+  min-width: 0;
+
+  overflow: hidden;
+
+  background: #201919 !important;
+  color: #FFFFFF !important;
+
+  border: 1px solid #382727 !important;
+  border-radius: 15px !important;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.35s ease,
+    border-color 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* ========================================
+   ORIGINAL PRODUCT IMAGES
+
+   Existing image URLs remain unchanged.
+======================================== */
+
+.ph #menu :is(
+  article,
+  .food-card,
+  .ph-menu-card,
+  .ph-pizza-card,
+  .ph-product-card
+) img {
+  display: block;
+
+  width: 100% !important;
+  height: 190px !important;
+
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 0 !important;
+
+  opacity: 1;
+  filter: none;
+
+  transition: transform 0.5s ease;
+}
+
+.ph #menu :is(
+  .ph-card-image,
+  .ph-food-image,
+  .ph-product-image,
+  .ph-menu-image,
+  .ph-pizza-image
+) {
+  overflow: hidden;
+}
+
+/* ========================================
+   PRODUCT CONTENT
+======================================== */
+
+.ph #menu :is(
+  .ph-card-body,
+  .ph-card-content,
+  .ph-product-content,
+  .ph-pizza-content,
+  .ph-menu-content
+) {
+  padding: 16px;
+
+  flex: 1;
+
+  background: transparent !important;
+}
+
+.ph #menu :is(h3, h4) {
+  color: #FFFFFF !important;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+/* CATEGORY BADGE */
+
+.ph #menu [class*="badge"] {
+  color: #FF625F !important;
+
+  background:
+    rgba(255, 49, 46, 0.10) !important;
+
+  border: 1px solid
+    rgba(255, 49, 46, 0.20);
+
+  border-radius: 6px;
+
+  padding: 5px 9px;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* PRODUCT LOCATION */
+
+.ph #menu [class*="location"] {
+  color: #B6A6A6 !important;
+  font-size: 13px;
+}
+
+.ph #menu [class*="location"] svg {
+  color: #FF312E !important;
+}
+
+/* PRODUCT PRICE */
+
+.ph #menu [class*="price"] {
+  color: #FF312E !important;
+
+  font-size: 23px;
+  font-weight: 800;
+
+  letter-spacing: -0.4px;
+}
+
+/* CARD DIVIDERS */
+
+.ph #menu hr {
+  border-color: #382727 !important;
+}
+
+/* ========================================
+   PRODUCT BUTTONS
+======================================== */
+
+.ph #menu :is(
+  article,
+  .food-card,
+  .ph-menu-card,
+  .ph-pizza-card,
+  .ph-product-card
+) :is(a, button) {
+  color: #FFFFFF !important;
+
+  border-color: #382727 !important;
+
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ph #menu :is(
+  .ph-button,
+  .ph-card-button,
+  .ph-details-button,
+  .ph-view-details
+) {
+  color: #FFFFFF !important;
+  background: #FF312E !important;
+
+  border: none !important;
+  border-radius: 8px;
+
+  font-weight: 600;
+}
+
+.ph #menu :is(
+  .ph-button,
+  .ph-card-button,
+  .ph-details-button,
+  .ph-view-details
+):hover {
+  background: #DD201D !important;
+
+  box-shadow:
+    0 5px 18px rgba(255, 49, 46, 0.20);
+}
+
+.ph #menu :is(a, button):focus-visible {
+  outline: 2px solid #FF312E;
+  outline-offset: 3px;
+}
+
+/* ========================================
+   SMOOTH 3D HOVER EFFECT
+======================================== */
+
+@media (hover: hover) {
+
+  .ph #menu :is(
+    article,
+    .food-card,
+    .ph-menu-card,
+    .ph-pizza-card,
+    .ph-product-card
+  ):hover {
+    transform:
+      perspective(1000px)
+      translateY(-6px)
+      rotateX(2deg);
+
+    border-color: #FF312E !important;
+
+    box-shadow:
+      0 16px 35px rgba(0, 0, 0, 0.40),
+      0 0 20px rgba(255, 49, 46, 0.06);
+  }
+
+  .ph #menu :is(
+    article,
+    .food-card,
+    .ph-menu-card,
+    .ph-pizza-card,
+    .ph-product-card
+  ):hover img {
+    transform: scale(1.04);
+  }
+
+}
+
+/* ========================================
+   TABLET RESPONSIVE
+======================================== */
+
+@media (max-width: 1024px) {
+
+  .ph #menu {
+    padding: 45px 0;
+  }
+
+  .ph #menu .ph-container {
+    padding-inline: 24px;
+  }
+
+}
+
+/* ========================================
+   MOBILE RESPONSIVE
+======================================== */
+
+@media (max-width: 600px) {
+
+  .ph #menu {
+    min-height: auto;
+    padding: 35px 0;
+  }
+
+  .ph #menu .ph-container {
+    padding-inline: 16px;
+  }
+
+  .ph #menu h2 {
+    font-size: 32px;
+  }
+
+  .ph #menu :is(
+    .ph-menu-grid,
+    .ph-food-grid,
+    .ph-product-grid,
+    .ph-pizza-grid,
+    .ph-card-grid,
+    .ph-items-grid,
+    div:has(> article),
+    div:has(> .ph-menu-card),
+    div:has(> .ph-product-card),
+    div:has(> .ph-pizza-card),
+    div:has(> .food-card)
+  ) {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 12px !important;
+  }
+
+  .ph #menu :is(
+    article,
+    .food-card,
+    .ph-menu-card,
+    .ph-pizza-card,
+    .ph-product-card
+  ) img {
+    height: 135px !important;
+  }
+
+  .ph #menu :is(
+    .ph-card-body,
+    .ph-card-content,
+    .ph-product-content,
+    .ph-pizza-content,
+    .ph-menu-content
+  ) {
+    padding: 12px;
+  }
+
+  .ph #menu h3 {
+    font-size: 14px;
+  }
+
+  .ph #menu [class*="price"] {
+    font-size: 19px;
+  }
+
+}
+
+/* ACCESSIBILITY */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ph #menu * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .ph #menu :is(
+    article,
+    .food-card,
+    .ph-menu-card,
+    .ph-pizza-card,
+    .ph-product-card
+  ):hover {
+    transform: none !important;
+  }
+
+}

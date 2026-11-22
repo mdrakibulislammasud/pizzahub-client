@@ -1,0 +1,160 @@
+
+/*
+  PizzaHub Mobile Hero
+  Text and existing pizza image share one hero area.
+  Desktop 3D animations remain unchanged.
+*/
+
+@media (max-width: 767px) {
+
+  .ph-hero {
+    position: relative !important;
+    isolation: isolate;
+    overflow: hidden !important;
+    background: #080808 !important;
+  }
+
+  .ph-hero .ph-hero-grid {
+    position: relative !important;
+    isolation: isolate;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Existing pizza image becomes the background. */
+
+  .ph-hero .ph-hero-visual {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    opacity: 1 !important;
+    pointer-events: none !important;
+    overflow: hidden !important;
+  }
+
+  .ph-hero .ph-hero-photo-frame {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: 0 !important;
+    border-radius: 0 !important;
+    overflow: hidden !important;
+  }
+
+  .ph-hero .ph-hero-photo-motion {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+  }
+
+  .ph-hero .ph-hero-photo {
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    max-width: none !important;
+    min-height: 0 !important;
+    object-fit: cover !important;
+    object-position: 60% center !important;
+    border-radius: 0 !important;
+  }
+
+  /* Dark gradient keeps text readable. */
+
+  .ph-hero .ph-hero-grid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.94) 0%,
+      rgba(0, 0, 0, 0.83) 26%,
+      rgba(0, 0, 0, 0.65) 49%,
+      rgba(0, 0, 0, 0.25) 78%,
+      rgba(0, 0, 0, 0.12) 100%
+    );
+  }
+
+  /* Hero content stays in front of the image. */
+
+  .ph-hero .ph-hero-content {
+    position: relative !important;
+    z-index: 3 !important;
+    display: block !important;
+    width: 100% !important;
+    max-width: none !important;
+    min-height: 640px !important;
+    height: auto !important;
+    margin: 0 !important;
+    padding: 48px 24px 170px !important;
+    background: transparent !important;
+    color: #ffffff !important;
+  }
+
+  .ph-hero .ph-hero-content h1 {
+    max-width: 340px;
+    font-size: clamp(38px, 9vw, 52px);
+    line-height: 1.08;
+    text-shadow: 0 3px 20px rgba(0, 0, 0, 0.5);
+  }
+
+  .ph-hero .ph-hero-content p {
+    max-width: 360px;
+    color: rgba(255, 255, 255, 0.92);
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .ph-hero .ph-hero-actions {
+    position: relative;
+    z-index: 4;
+  }
+
+  .ph-hero .ph-hero-location {
+    color: rgba(255, 255, 255, 0.9);
+  }
+
+  /* Hide floating decorations only on mobile. */
+
+  .ph-hero .ph-fresh-label,
+  .ph-hero .ph-floating-leaf,
+  .ph-hero .ph-hero-wave {
+    display: none !important;
+  }
+
+}
+
+@media (max-width: 360px) {
+
+  .ph-hero .ph-hero-content {
+    padding-left: 18px !important;
+    padding-right: 18px !important;
+  }
+
+  .ph-hero .ph-hero-content h1 {
+    font-size: 36px;
+  }
+
+}

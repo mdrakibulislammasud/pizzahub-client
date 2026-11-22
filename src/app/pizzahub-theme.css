@@ -1,0 +1,1216 @@
+
+/* ==========================================
+   PIZZAHUB — PREMIUM BLACK & RED THEME
+========================================== */
+
+:root,
+.ph {
+  --background: #080808;
+  --foreground: #FFFFFF;
+  --primary: #E51B23;
+
+  --bg-cream: #080808;
+  --hero-light: #080808;
+  --hero-cream: #0B0B0B;
+  --bg-card: #141414;
+  --accent-tint: #1C0808;
+
+  --primary-red: #E51B23;
+  --dark-maroon: #080808;
+  --light-maroon: #B71016;
+  --bottom-wave: #080808;
+
+  --text-dark: #FFFFFF;
+  --text-muted: #FFFFFF;
+  --text-white: #FFFFFF;
+
+  --ph-black: #080808;
+  --ph-surface: #0B0B0B;
+  --ph-card: #141414;
+  --ph-red: #E51B23;
+  --ph-red-light: #FF4545;
+  --ph-border: #351010;
+  --ph-muted: #FFFFFF;
+}
+
+/* ==========================================
+   GLOBAL STYLING
+========================================== */
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+  background: #080808 !important;
+}
+
+body {
+  margin: 0;
+  background: #080808 !important;
+  color: #FFFFFF !important;
+  color-scheme: dark;
+}
+
+.ph {
+  background: #080808 !important;
+  color: #FFFFFF !important;
+}
+
+::selection {
+  background: #E51B23;
+  color: #FFFFFF;
+}
+
+/* SCROLLBAR */
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #B71016;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #E51B23;
+}
+
+/* ==========================================
+   PREMIUM BLACK NAVBAR
+========================================== */
+
+.ph-header,
+.ph header,
+body > header {
+  background: #0B0B0B !important;
+  color: #FFFFFF !important;
+
+  border-bottom: 1px solid #351010;
+
+  box-shadow:
+    0 5px 25px rgba(0, 0, 0, 0.3);
+}
+
+.ph-nav {
+  background: transparent !important;
+}
+
+.ph-header :is(a, button),
+.ph header :is(a, button) {
+  color: #FFFFFF;
+  transition: color 0.25s ease;
+}
+
+.ph-header nav a:hover,
+.ph header nav a:hover {
+  color: #FF4545 !important;
+}
+
+/* LOGO */
+
+.ph :is(
+  .ph-logo,
+  .ph-brand,
+  .ph-brand-name,
+  .ph-logo-text
+) {
+  color: #FFFFFF !important;
+}
+
+.ph :is(
+  .ph-logo,
+  .ph-brand,
+  .ph-brand-name,
+  .ph-logo-text
+) :is(span, em, strong) {
+  color: #E51B23 !important;
+}
+
+.ph :is(
+  .ph-logo-icon,
+  .ph-logo-mark,
+  .ph-brand-icon
+) {
+  background: #E51B23 !important;
+  color: #FFFFFF !important;
+
+  border-radius: 10px;
+}
+
+/* PROFILE AVATAR */
+
+.ph header [class*="avatar"],
+.ph-header [class*="avatar"],
+body [class*="bg-purple-"],
+body [class*="bg-violet-"],
+body [class*="bg-indigo-"] {
+  background: #C9151B !important;
+  color: #FFFFFF !important;
+}
+
+/* MOBILE NAVIGATION */
+
+.ph :is(
+  .ph-mobile-menu,
+  .ph-mobile-nav,
+  .ph-nav-dropdown,
+  .ph-user-dropdown
+) {
+  background: #0B0B0B !important;
+  color: #FFFFFF !important;
+
+  border-color: #351010 !important;
+}
+
+/* ==========================================
+   ORIGINAL HERO BANNER
+
+   No image replacement or resizing.
+========================================== */
+
+.ph .ph-hero {
+  background: #080808 !important;
+}
+
+.ph .ph-hero-photo {
+  opacity: 1 !important;
+  filter: none !important;
+}
+
+.ph .ph-hero-grid {
+  border: none !important;
+}
+
+/* ==========================================
+   HOMEPAGE SECTIONS
+========================================== */
+
+.ph main > section:not(.ph-hero),
+.ph .ph-section,
+.ph #menu,
+.ph #about,
+.ph #categories,
+.ph #collections,
+.ph #how-it-works {
+  background: #080808 !important;
+  background-image: none !important;
+
+  color: #FFFFFF !important;
+}
+
+.ph #categories,
+.ph #how-it-works {
+  background: #0B0B0B !important;
+}
+
+/* REMOVE OLD CREAM PATTERNS */
+
+.ph main > section:not(.ph-hero)::before,
+.ph main > section:not(.ph-hero)::after,
+.ph .ph-section::before,
+.ph .ph-section::after {
+  background-image: none !important;
+}
+
+.ph :is(
+  .ph-leaves,
+  .ph-decoration,
+  .ph-decorations,
+  .ph-pattern,
+  .ph-leaf-pattern,
+  .ph-decorative-leaves
+) {
+  display: none !important;
+}
+
+/* ==========================================
+   TYPOGRAPHY
+========================================== */
+
+.ph :is(
+  h1, h2, h3, h4, h5, h6
+):not(.ph-hero *) {
+  color: #FFFFFF !important;
+}
+
+.ph :is(h2, h3):not(.ph-hero *) :is(span, em) {
+  color: #E51B23 !important;
+}
+
+.ph main > section:not(.ph-hero) h2 {
+  font-family:
+    Georgia,
+    "Times New Roman",
+    serif;
+
+  font-size: clamp(32px, 3.4vw, 54px);
+
+  font-weight: 800;
+  line-height: 1.15;
+
+  letter-spacing: -1px;
+}
+
+.ph main > section:not(.ph-hero) p {
+  color: #FFFFFF !important;
+}
+
+.ph :is(
+  .ph-section-heading,
+  .ph-section-title,
+  .ph-heading
+) {
+  color: #FFFFFF !important;
+}
+
+.ph :is(
+  .ph-section-heading,
+  .ph-section-title
+) :is(span, em) {
+  color: #E51B23 !important;
+}
+
+/* ==========================================
+   FEATURED MENU
+========================================== */
+
+.ph #menu {
+  position: relative;
+
+  width: 100%;
+  min-height: 420px;
+
+  padding: 60px 0 70px;
+
+  background: #080808 !important;
+
+  overflow: hidden;
+  scroll-margin-top: 80px;
+}
+
+.ph #menu::before,
+.ph #menu::after {
+  content: none !important;
+  display: none !important;
+}
+
+.ph #menu .ph-container {
+  width: 100%;
+  max-width: 1400px;
+
+  margin-inline: auto;
+  padding-inline: 28px;
+}
+
+/* SEARCH BAR */
+
+.ph #menu :is(div, label):has(> input) {
+  min-height: 54px;
+
+  background: #141414 !important;
+
+  border: 1px solid #351010 !important;
+  border-radius: 12px;
+
+  transition:
+    border-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ph #menu input {
+  min-width: 0;
+
+  color: #FFFFFF !important;
+  background: transparent !important;
+
+  border: none !important;
+  outline: none;
+}
+
+.ph #menu input::placeholder {
+  color: #FFFFFF !important;
+  opacity: 1;
+}
+
+.ph #menu :is(div, label):has(> input) svg {
+  color: #E51B23 !important;
+}
+
+.ph #menu :is(div, label):has(> input):focus-within {
+  border-color: #E51B23 !important;
+
+  box-shadow:
+    0 0 0 3px rgba(229, 27, 35, 0.10);
+}
+
+/* CATEGORY FILTER */
+
+.ph #menu select {
+  min-height: 54px;
+
+  padding-inline: 16px;
+
+  background: #141414 !important;
+  color: #FFFFFF !important;
+
+  border: 1px solid #351010 !important;
+  border-radius: 12px;
+
+  color-scheme: dark;
+  cursor: pointer;
+}
+
+.ph #menu select:focus {
+  border-color: #E51B23 !important;
+  outline: none;
+}
+
+.ph #menu select option {
+  background: #141414 !important;
+  color: #FFFFFF !important;
+}
+
+/* ==========================================
+   PRODUCT GRID
+========================================== */
+
+.ph #menu :is(
+  .ph-menu-grid,
+  .ph-food-grid,
+  .ph-product-grid,
+  .ph-pizza-grid,
+  .ph-card-grid,
+  .ph-items-grid,
+  div:has(> article),
+  div:has(> .food-card),
+  div:has(> .ph-card),
+  div:has(> .ph-menu-card),
+  div:has(> .ph-pizza-card),
+  div:has(> .ph-product-card)
+) {
+  display: grid !important;
+
+  grid-template-columns:
+    repeat(
+      auto-fill,
+      minmax(min(100%, 240px), 1fr)
+    ) !important;
+
+  align-items: stretch;
+
+  width: 100%;
+
+  gap: 24px !important;
+  margin-top: 32px;
+}
+
+/* ==========================================
+   PREMIUM PRODUCT CARDS
+========================================== */
+
+.ph #menu :is(
+  article,
+  .food-card,
+  .ph-card,
+  .ph-food-card,
+  .ph-menu-card,
+  .ph-pizza-card,
+  .ph-product-card
+) {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  min-width: 0;
+  max-width: 340px;
+
+  overflow: hidden;
+
+  background: #141414 !important;
+  color: #FFFFFF !important;
+
+  border: 1px solid #351010 !important;
+  border-radius: 16px !important;
+
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.35);
+
+  transition:
+    border-color 0.3s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+/* EXISTING PRODUCT IMAGES */
+
+.ph #menu :is(
+  article,
+  .food-card,
+  .ph-card,
+  .ph-food-card,
+  .ph-menu-card,
+  .ph-pizza-card,
+  .ph-product-card
+) img {
+  display: block;
+
+  width: 100% !important;
+  height: 205px !important;
+
+  object-fit: cover;
+  object-position: center;
+
+  opacity: 1;
+  filter: none;
+
+  transition: transform 0.5s ease;
+}
+
+.ph #menu :is(
+  .ph-card-image,
+  .ph-food-image,
+  .ph-menu-image,
+  .ph-pizza-image,
+  .ph-product-image
+) {
+  overflow: hidden;
+}
+
+/* PRODUCT INFORMATION */
+
+.ph #menu :is(
+  .ph-card-body,
+  .ph-card-content,
+  .ph-food-content,
+  .ph-product-content,
+  .ph-pizza-content,
+  .ph-menu-content
+) {
+  padding: 18px;
+
+  background: transparent !important;
+  color: #FFFFFF !important;
+
+  flex: 1;
+}
+
+.ph #menu :is(h3, h4) {
+  color: #FFFFFF !important;
+
+  font-size: 18px;
+  font-weight: 700;
+
+  line-height: 1.4;
+}
+
+/* CATEGORY BADGE */
+
+.ph #menu [class*="badge"] {
+  color: #FFFFFF !important;
+  background: #101010 !important;
+
+  border: 1px solid #351010;
+  border-radius: 6px;
+
+  padding: 5px 9px;
+
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* LOCATION */
+
+.ph #menu [class*="location"],
+.ph #menu [class*="address"] {
+  color: #FFFFFF !important;
+  font-size: 13px;
+}
+
+.ph #menu [class*="location"] svg {
+  color: #E51B23 !important;
+}
+
+/* PRICE */
+
+.ph #menu [class*="price"] {
+  color: #FF4545 !important;
+
+  font-size: 24px;
+  font-weight: 800;
+}
+
+/* CARD DIVIDERS */
+
+.ph #menu hr {
+  border-color: #351010 !important;
+}
+
+/* CARD LINKS */
+
+.ph #menu :is(
+  article,
+  .food-card,
+  .ph-card,
+  .ph-menu-card,
+  .ph-pizza-card,
+  .ph-product-card
+) :is(a, button) {
+  color: #FFFFFF !important;
+  border-color: #351010 !important;
+}
+
+/* ==========================================
+   SMOOTH 3D PRODUCT HOVER
+========================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+  .ph #menu :is(
+    article,
+    .food-card,
+    .ph-card,
+    .ph-food-card,
+    .ph-menu-card,
+    .ph-pizza-card,
+    .ph-product-card
+  ):hover {
+    transform:
+      perspective(1200px)
+      translateY(-6px)
+      rotateX(2deg);
+
+    border-color: #E51B23 !important;
+
+    box-shadow:
+      0 18px 40px rgba(0, 0, 0, 0.5),
+      0 0 15px rgba(229, 27, 35, 0.08);
+  }
+
+  .ph #menu :is(
+    article,
+    .food-card,
+    .ph-card,
+    .ph-menu-card,
+    .ph-pizza-card,
+    .ph-product-card
+  ):hover img {
+    transform: scale(1.035);
+  }
+
+}
+
+/* ==========================================
+   CATEGORIES AND COLLECTIONS
+========================================== */
+
+.ph :is(
+  .ph-category-card,
+  .ph-collection-card,
+  .ph-feature-card,
+  .ph-benefit-card,
+  .ph-step-card,
+  .ph-info-card,
+  .ph-service-card
+) {
+  background: #141414 !important;
+  color: #FFFFFF !important;
+
+  border: 1px solid #351010 !important;
+  border-radius: 15px;
+
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.25);
+
+  transition:
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.ph :is(
+  .ph-category-icon,
+  .ph-feature-icon,
+  .ph-benefit-icon,
+  .ph-step-icon,
+  .ph-service-icon
+) {
+  background: #0B0B0B !important;
+  color: #E51B23 !important;
+
+  border-color: #351010 !important;
+}
+
+.ph :is(
+  #categories,
+  #collections,
+  #about,
+  #how-it-works
+) article {
+  background: #141414 !important;
+
+  border: 1px solid #351010;
+  border-radius: 15px;
+}
+
+@media (hover: hover) {
+
+  .ph :is(
+    .ph-category-card,
+    .ph-collection-card,
+    .ph-feature-card,
+    .ph-benefit-card,
+    .ph-step-card
+  ):hover {
+    border-color: #E51B23 !important;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+      0 14px 30px rgba(0, 0, 0, 0.4);
+  }
+
+}
+
+/* ==========================================
+   PRIMARY BUTTONS
+========================================== */
+
+.ph :is(
+  .ph-button,
+  .ph-order-button,
+  .ph-primary-button,
+  .ph-card-button,
+  .ph-submit-button,
+  .ph-details-button
+):not(.ph-hero *) {
+  background: #C9151B !important;
+  color: #FFFFFF !important;
+
+  border: 1px solid #E51B23 !important;
+
+  transition:
+    transform 0.25s ease,
+    background-color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.ph :is(
+  .ph-button,
+  .ph-order-button,
+  .ph-primary-button,
+  .ph-card-button,
+  .ph-submit-button,
+  .ph-details-button
+):not(.ph-hero *):hover {
+  background: #E51B23 !important;
+
+  box-shadow:
+    0 6px 20px rgba(229, 27, 35, 0.18);
+}
+
+/* SECONDARY BUTTONS */
+
+.ph :is(
+  .ph-secondary-button,
+  .ph-outline-button
+):not(.ph-hero *) {
+  background: transparent !important;
+  color: #FFFFFF !important;
+
+  border: 1px solid #E51B23 !important;
+}
+
+.ph :is(
+  .ph-secondary-button,
+  .ph-outline-button
+):not(.ph-hero *):hover {
+  background: #1C0808 !important;
+}
+
+/* ==========================================
+   FORMS AND AUTHENTICATION
+========================================== */
+
+body :is(
+  input:not([type="checkbox"]):not([type="radio"]),
+  textarea,
+  select
+):not(.ph-hero *) {
+  background: #141414;
+  color: #FFFFFF;
+
+  border-color: #351010;
+  color-scheme: dark;
+
+  accent-color: #E51B23;
+}
+
+body :is(input, textarea)::placeholder {
+  color: #FFFFFF;
+  opacity: 1;
+}
+
+body :is(input, textarea, select):focus-visible {
+  outline: 2px solid #E51B23;
+  outline-offset: 2px;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  accent-color: #E51B23;
+}
+
+body :is(
+  .auth-card,
+  .login-card,
+  .signup-card,
+  .auth-container,
+  .dashboard-card,
+  .stat-card
+) {
+  background: #141414 !important;
+  color: #FFFFFF !important;
+
+  border-color: #351010 !important;
+}
+
+/* ==========================================
+   PRODUCT DETAILS AND POPUPS
+========================================== */
+
+dialog,
+[role="dialog"],
+.ph-modal,
+.ph-dialog,
+.ph-detail-modal,
+.ph-modal-content,
+.ph-details-panel {
+  background: #141414 !important;
+  color: #FFFFFF !important;
+
+  border-color: #351010 !important;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+}
+
+:is(dialog, [role="dialog"]) :is(h2, h3, h4, p) {
+  color: #FFFFFF !important;
+}
+
+/* ==========================================
+   TABLES AND DASHBOARDS
+========================================== */
+
+body table {
+  color: #FFFFFF;
+  border-color: #351010;
+}
+
+body thead {
+  background: #141414;
+  color: #FFFFFF;
+}
+
+body td,
+body th {
+  border-color: #351010;
+}
+
+body tbody tr:hover {
+  background: #141414;
+}
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+.ph footer,
+.ph-footer,
+body > footer {
+  background: #0B0B0B !important;
+  background-image: none !important;
+
+  color: #FFFFFF !important;
+
+  border-top: 1px solid #351010;
+}
+
+.ph footer :is(h2, h3, h4, p),
+.ph-footer :is(h2, h3, h4, p) {
+  color: #FFFFFF !important;
+}
+
+.ph footer a,
+.ph-footer a {
+  color: #FFFFFF !important;
+  transition: color 0.25s ease;
+}
+
+.ph footer a:hover,
+.ph-footer a:hover {
+  color: #E51B23 !important;
+}
+
+.ph :is(
+  .ph-footer-bottom,
+  .ph-footer-wave
+) {
+  background: #080808 !important;
+  border-color: #351010 !important;
+}
+
+.ph-footer-wave svg {
+  fill: #0B0B0B !important;
+}
+
+/* ==========================================
+   REMOVE LEGACY UI COLOURS
+
+   Images remain unchanged.
+========================================== */
+
+body :is(
+  .bg-white,
+  [class^="bg-gray-"],
+  [class*=" bg-gray-"],
+  [class^="bg-stone-"],
+  [class*=" bg-stone-"],
+  [class^="bg-slate-"],
+  [class*=" bg-slate-"],
+  [class^="bg-zinc-"],
+  [class*=" bg-zinc-"],
+  [class^="bg-neutral-"],
+  [class*=" bg-neutral-"],
+  [class^="bg-yellow-"],
+  [class*=" bg-yellow-"],
+  [class^="bg-amber-"],
+  [class*=" bg-amber-"],
+  [class*="bg-[#faf8f3]"],
+  [class*="bg-[#F7F1E5]"],
+  [class*="bg-[#eee8dc]"],
+  [class*="bg-[#242424]"]
+):not(.ph-hero *) {
+  background-color: #141414 !important;
+}
+
+body :is(
+  .text-black,
+  [class*="text-stone-"],
+  [class*="text-gray-"],
+  [class*="text-neutral-"],
+  [class*="text-slate-"],
+  [class*="text-zinc-"]
+):not(.ph-hero *) {
+  color: #FFFFFF !important;
+}
+
+body :is(
+  [class*="text-yellow-"],
+  [class*="text-amber-"],
+  [class*="text-[#efb66a]"]
+):not(.ph-hero *) {
+  color: #E51B23 !important;
+}
+
+body :is(
+  [class*="border-gray-"],
+  [class*="border-stone-"],
+  [class*="border-slate-"],
+  [class*="border-zinc-"],
+  [class*="border-neutral-"],
+  [class*="border-yellow-"],
+  [class*="border-amber-"]
+):not(.ph-hero *) {
+  border-color: #351010 !important;
+}
+
+/* ==========================================
+   ACCESSIBILITY
+========================================== */
+
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #FF4545;
+  outline-offset: 3px;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+@media (max-width: 1024px) {
+
+  .ph #menu {
+    padding: 48px 0 50px;
+  }
+
+  .ph #menu .ph-container {
+    padding-inline: 22px;
+  }
+
+}
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+  .ph #menu {
+    min-height: auto;
+    padding: 36px 0 40px;
+  }
+
+  .ph #menu .ph-container {
+    padding-inline: 15px;
+  }
+
+  .ph #menu :is(
+    .ph-menu-grid,
+    .ph-food-grid,
+    .ph-product-grid,
+    .ph-pizza-grid,
+    .ph-card-grid,
+    .ph-items-grid,
+    div:has(> article),
+    div:has(> .food-card),
+    div:has(> .ph-card),
+    div:has(> .ph-menu-card),
+    div:has(> .ph-product-card)
+  ) {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr)) !important;
+
+    gap: 12px !important;
+  }
+
+  .ph #menu :is(
+    article,
+    .food-card,
+    .ph-card,
+    .ph-menu-card,
+    .ph-product-card
+  ) img {
+    height: 145px !important;
+  }
+
+  .ph #menu :is(
+    .ph-card-body,
+    .ph-card-content,
+    .ph-menu-content,
+    .ph-product-content
+  ) {
+    padding: 12px;
+  }
+
+  .ph #menu h3 {
+    font-size: 15px;
+  }
+
+  .ph #menu [class*="price"] {
+    font-size: 20px;
+  }
+
+}
+
+@media (max-width: 360px) {
+
+  .ph #menu :is(
+    .ph-menu-grid,
+    .ph-food-grid,
+    .ph-product-grid,
+    .ph-pizza-grid,
+    .ph-card-grid,
+    .ph-items-grid,
+    div:has(> article),
+    div:has(> .ph-card),
+    div:has(> .ph-menu-card),
+    div:has(> .ph-product-card)
+  ) {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
+}
+
+/* REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  .ph *,
+  .ph *::before,
+  .ph *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+}
+
+/* FIX DOUBLE INPUT FOCUS BORDER */
+
+input:focus,
+input:focus-visible,
+textarea:focus,
+textarea:focus-visible {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+div:has(> input):focus-within {
+  border-color: #E51B23;
+}
+
+div:has(> input) > input {
+  border: none !important;
+  border-radius: 0 !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+
+/* CLICKABLE PIZZA CARDS */
+
+[data-ph-clickable-pizza] {
+  cursor: pointer;
+}
+
+
+/* PIZZAHUB MOBILE COMPACT CARDS START */
+
+@media (max-width: 767px) {
+
+  .ph-product-grid {
+    display: grid !important;
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-auto-rows: max-content !important;
+    align-items: start !important;
+    gap: 16px !important;
+  }
+
+  .ph-product-grid .ph-product-card {
+    display: flex !important;
+    flex-direction: column !important;
+    grid-template-rows: none !important;
+    align-self: start !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    overflow: hidden !important;
+  }
+
+  /* The image container must not reserve empty space. */
+
+  .ph-product-grid .ph-product-image-wrap {
+    position: relative !important;
+    display: block !important;
+    flex: none !important;
+    width: 100% !important;
+    height: clamp(165px, 44vw, 195px) !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    aspect-ratio: auto !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: hidden !important;
+  }
+
+  /* Fill the image container, including nested image wrappers. */
+
+  .ph-product-grid
+  .ph-product-image-wrap > img,
+
+  .ph-product-grid
+  .ph-product-image-wrap > picture,
+
+  .ph-product-grid
+  .ph-product-image-wrap > div {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+  }
+
+  .ph-product-grid
+  .ph-product-image-wrap img,
+
+  .ph-product-grid
+  .ph-product-image-wrap .ph-product-image {
+    position: absolute !important;
+    inset: 0 !important;
+    display: block !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    object-fit: cover !important;
+  }
+
+  /* Product details immediately after the image. */
+
+  .ph-product-grid .ph-product-body {
+    position: static !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: flex-start !important;
+    flex: none !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 14px 16px !important;
+    gap: 0 !important;
+  }
+
+  .ph-product-grid .ph-product-body h3 {
+    margin: 0 0 8px !important;
+    padding: 0 !important;
+    font-size: 18px !important;
+    line-height: 1.35 !important;
+  }
+
+  .ph-product-grid .ph-product-location {
+    margin: 0 0 10px !important;
+    padding: 0 !important;
+    line-height: 1.5 !important;
+  }
+
+  .ph-product-grid .ph-product-bottom {
+    margin: 0 !important;
+    padding: 0 0 12px !important;
+    min-height: 0 !important;
+  }
+
+  .ph-product-grid .ph-details-link {
+    margin: 0 !important;
+    padding: 12px 0 0 !important;
+    min-height: 0 !important;
+  }
+}
+
+/* PIZZAHUB MOBILE COMPACT CARDS END */

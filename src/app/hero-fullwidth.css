@@ -1,0 +1,518 @@
+
+/* =========================================
+   PIZZAHUB — CINEMATIC DARK HERO
+========================================= */
+
+.ph .ph-hero {
+  position: relative;
+  isolation: isolate;
+  width: 100%;
+  overflow: hidden;
+  background: #290704;
+}
+
+/* FULL WIDTH LAYOUT */
+
+.ph .ph-hero-grid.ph-container {
+  position: relative;
+  display: grid;
+
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: "hero";
+
+  align-items: center;
+
+  width: 100%;
+  max-width: none;
+
+  min-height: 0;
+  height: auto;
+
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+/* REMOVE PREVIOUS GRADIENTS */
+
+.ph .ph-hero-grid::before,
+.ph .ph-hero-grid::after,
+.ph .ph-hero-visual::before,
+.ph .ph-hero-visual::after,
+.ph .ph-hero-photo-frame::before,
+.ph .ph-hero-photo-frame::after {
+  display: none !important;
+  content: none !important;
+}
+
+/* =========================================
+   FULL WIDTH HERO IMAGE
+========================================= */
+
+.ph .ph-hero-visual {
+  grid-area: hero;
+
+  position: relative;
+  z-index: 0;
+
+  display: block;
+
+  width: 100%;
+  height: auto;
+
+  max-width: none;
+  min-width: 0;
+  min-height: 0;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+.ph .ph-hero-photo-frame,
+.ph .ph-hero-photo-motion {
+  position: relative;
+
+  inset: auto !important;
+
+  display: block;
+
+  width: 100% !important;
+  height: auto !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  aspect-ratio: auto !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  background: transparent !important;
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  overflow: hidden;
+
+  transform: none !important;
+}
+
+.ph .ph-hero-photo {
+  display: block;
+
+  width: 100% !important;
+  height: auto !important;
+
+  max-width: none !important;
+  max-height: none !important;
+
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  border: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+
+  filter: none !important;
+  opacity: 1 !important;
+
+  clip-path: none !important;
+  mask-image: none !important;
+
+  transform: none !important;
+}
+
+/* =========================================
+   DESKTOP HERO CONTENT
+========================================= */
+
+.ph .ph-hero-content {
+  grid-area: hero;
+
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 5;
+
+  width: 100%;
+  height: 100%;
+
+  max-width: none;
+  min-width: 0;
+
+  margin: 0;
+  padding: 0;
+
+  background: transparent !important;
+
+  border: none !important;
+  box-shadow: none !important;
+
+  opacity: 1 !important;
+  transform: none !important;
+
+  pointer-events: none;
+}
+
+/*
+   The new banner already contains text.
+   Keep HTML text accessible without
+   displaying duplicate content.
+*/
+
+.ph .ph-hero-content > h1,
+.ph .ph-hero-content > p,
+.ph .ph-hero-location {
+  position: absolute !important;
+
+  width: 1px !important;
+  height: 1px !important;
+
+  padding: 0 !important;
+  margin: -1px !important;
+
+  overflow: hidden !important;
+  white-space: nowrap !important;
+
+  clip-path: inset(50%) !important;
+  border: 0 !important;
+}
+
+/* REMOVE DUPLICATE DECORATIONS */
+
+.ph .ph-heading-underline,
+.ph .ph-hero-badge,
+.ph .ph-fresh-label,
+.ph .ph-floating-leaf,
+.ph .ph-hero-wave,
+.ph .ph-hero > .ph-leaves {
+  display: none !important;
+}
+
+/* =========================================
+   FUNCTIONAL HERO BUTTONS
+========================================= */
+
+.ph .ph-hero-actions {
+  position: absolute;
+
+  inset: 0;
+
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  pointer-events: none;
+}
+
+.ph .ph-hero-actions .ph-button,
+.ph .ph-hero-actions .ph-secondary-button {
+  position: absolute;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-height: 0;
+  min-width: 0;
+
+  height: 8%;
+
+  margin: 0;
+  padding: 0;
+
+  color: transparent !important;
+  background: transparent !important;
+
+  border: none !important;
+  border-radius: 999px;
+
+  box-shadow: none !important;
+
+  font-size: 0 !important;
+
+  pointer-events: auto;
+
+  cursor: pointer;
+
+  transform: none !important;
+
+  transition:
+    box-shadow 0.25s ease,
+    background-color 0.25s ease;
+}
+
+/* EXPLORE MENU BUTTON */
+
+.ph .ph-hero-actions .ph-button {
+  left: 6.2%;
+  top: 61.5%;
+  width: 13.3%;
+}
+
+/* SECONDARY BUTTON */
+
+.ph .ph-hero-actions .ph-secondary-button {
+  left: 20.6%;
+  top: 61.5%;
+  width: 10%;
+}
+
+.ph .ph-hero-actions a svg {
+  visibility: hidden;
+}
+
+/* INTERACTIVE HOVER */
+
+.ph .ph-hero-actions a:hover {
+  background: rgba(255, 255, 255, 0.06) !important;
+
+  box-shadow:
+    0 0 0 2px rgba(255, 255, 255, 0.35),
+    0 0 25px rgba(220, 20, 20, 0.32) !important;
+}
+
+.ph .ph-hero-actions a:focus-visible {
+  outline: 3px solid #FFF4DD;
+  outline-offset: 4px;
+}
+
+/* =========================================
+   MOBILE RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 850px) {
+
+  .ph .ph-hero {
+    background: linear-gradient(
+      145deg,
+      #290704,
+      #5C0E09
+    );
+  }
+
+  .ph .ph-hero-grid.ph-container {
+    grid-template-columns: minmax(0, 1fr);
+
+    grid-template-areas:
+      "content"
+      "image";
+
+    width: 100%;
+
+    margin: 0;
+    padding: 0;
+  }
+
+  /* MOBILE CONTENT */
+
+  .ph .ph-hero-content {
+    grid-area: content;
+
+    position: relative;
+
+    inset: auto;
+
+    width: 100%;
+    height: auto;
+    max-width: none;
+
+    padding: 36px 24px 20px;
+
+    pointer-events: auto;
+  }
+
+  /* RESTORE REAL HTML HEADLINE */
+
+  .ph .ph-hero-content > h1,
+  .ph .ph-hero-content > p,
+  .ph .ph-hero-location {
+    position: relative !important;
+
+    width: auto !important;
+    height: auto !important;
+
+    margin: 0 !important;
+    padding: 0 !important;
+
+    overflow: visible !important;
+    white-space: normal !important;
+
+    clip-path: none !important;
+  }
+
+  .ph .ph-hero h1 {
+    color: #FFF8EE;
+
+    font-family:
+      Georgia,
+      "Times New Roman",
+      serif;
+
+    font-size: clamp(36px, 8vw, 58px);
+    font-weight: 800;
+
+    line-height: 1.06;
+    letter-spacing: -1px;
+  }
+
+  .ph .ph-hero h1 em {
+    color: #FF5144;
+    font-style: italic;
+  }
+
+  .ph .ph-hero-content > p {
+    max-width: 460px;
+
+    margin-top: 18px !important;
+
+    color: #E8D2C6;
+
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* MOBILE BUTTONS */
+
+  .ph .ph-hero-actions {
+    position: relative;
+
+    inset: auto;
+
+    display: flex;
+
+    align-items: center;
+    flex-wrap: wrap;
+
+    width: auto;
+    height: auto;
+
+    gap: 12px;
+
+    margin-top: 24px;
+
+    pointer-events: auto;
+  }
+
+  .ph .ph-hero-actions .ph-button,
+  .ph .ph-hero-actions .ph-secondary-button {
+    position: relative;
+
+    inset: auto;
+
+    width: auto;
+    height: auto;
+    min-height: 46px;
+
+    padding: 12px 20px;
+
+    font-size: 14px !important;
+    font-weight: 600;
+
+    color: #FFFFFF !important;
+
+    border-radius: 999px;
+  }
+
+  .ph .ph-hero-actions .ph-button {
+    background: #D51C16 !important;
+  }
+
+  .ph .ph-hero-actions .ph-secondary-button {
+    background: transparent !important;
+
+    border: 1px solid
+      rgba(255, 255, 255, 0.45) !important;
+  }
+
+  .ph .ph-hero-actions a svg {
+    visibility: visible;
+  }
+
+  .ph .ph-hero-location {
+    margin-top: 18px !important;
+
+    color: #DEC4B9;
+    font-size: 12px;
+  }
+
+  /* MOBILE IMAGE */
+
+  .ph .ph-hero-visual {
+    grid-area: image;
+    width: 100%;
+  }
+
+  .ph .ph-hero-photo-frame {
+    position: relative;
+
+    aspect-ratio: 1.15 / 1 !important;
+
+    overflow: hidden;
+  }
+
+  .ph .ph-hero-photo-motion {
+    position: absolute;
+
+    inset: 0 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .ph .ph-hero-photo {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+    object-position: right center !important;
+  }
+
+}
+
+/* SMALL MOBILE DEVICES */
+
+@media (max-width: 400px) {
+
+  .ph .ph-hero-content {
+    padding: 30px 18px 18px;
+  }
+
+  .ph .ph-hero-actions {
+    gap: 8px;
+  }
+
+  .ph .ph-hero-actions .ph-button,
+  .ph .ph-hero-actions .ph-secondary-button {
+    padding: 11px 15px;
+    font-size: 12px !important;
+  }
+
+}
+
+/* REDUCED MOTION SUPPORT */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .ph .ph-hero * {
+    animation: none !important;
+    transition: none !important;
+  }
+
+}

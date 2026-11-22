@@ -1,0 +1,42 @@
+
+@media (min-width: 768px) {
+
+  #home.ph-hero {
+    position: relative !important;
+  }
+
+  #home .ph-desktop-hero-link {
+    position: absolute;
+    z-index: 50;
+    display: block;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 999px;
+  }
+
+  #home .ph-desktop-hero-menu {
+    left: 4%;
+    top: 65%;
+    width: 21%;
+    height: 12%;
+  }
+
+  #home .ph-desktop-hero-about {
+    left: 25.5%;
+    top: 65%;
+    width: 16%;
+    height: 12%;
+  }
+
+  #home .ph-desktop-hero-link:focus-visible {
+    outline: 3px solid white;
+    outline-offset: 3px;
+  }
+}
+
+@media (max-width: 767px) {
+
+  #home .ph-desktop-hero-link {
+    display: none !important;
+  }
+}
