@@ -1214,3 +1214,90 @@ div:has(> input) > input {
 }
 
 /* PIZZAHUB MOBILE COMPACT CARDS END */
+
+/* ===== PIZZAHUB MENU RESPONSIVE DESIGN ===== */
+
+.ph #menu {
+  width: 100%;
+  overflow-x: clip;
+}
+
+.ph #menu .ph-container {
+  width: 100%;
+  max-width: 1440px;
+  margin-inline: auto;
+  box-sizing: border-box;
+}
+
+.ph #menu .ph-product-grid[data-ph-menu-grid] {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 24px !important;
+  width: 100% !important;
+  max-width: none !important;
+  align-items: stretch !important;
+}
+
+.ph #menu .ph-product-card {
+  display: flex !important;
+  flex-direction: column !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  height: 100% !important;
+  overflow: hidden !important;
+  box-sizing: border-box !important;
+}
+
+.ph #menu .ph-product-image-wrap {
+  width: 100% !important;
+  aspect-ratio: 16 / 10 !important;
+  height: auto !important;
+  flex: none !important;
+  overflow: hidden !important;
+  background: #171313 !important;
+}
+
+.ph #menu .ph-product-image-wrap img,
+.ph #menu .ph-product-image-wrap .ph-product-image {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+.ph #menu .ph-product-body {
+  display: flex !important;
+  flex: 1 !important;
+  flex-direction: column !important;
+  min-width: 0 !important;
+  box-sizing: border-box !important;
+}
+
+.ph #menu .ph-product-bottom {
+  margin-top: auto !important;
+}
+
+@media (max-width: 1050px) {
+  .ph #menu .ph-product-grid[data-ph-menu-grid] {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 20px !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .ph #menu .ph-container {
+    padding-inline: 12px !important;
+  }
+
+  .ph #menu .ph-product-grid[data-ph-menu-grid] {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 18px !important;
+  }
+
+  .ph #menu .ph-product-body {
+    padding: 16px !important;
+  }
+}
+
+/* ===== END MENU RESPONSIVE DESIGN ===== */
