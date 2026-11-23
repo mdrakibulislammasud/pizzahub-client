@@ -798,6 +798,7 @@ button:disabled {
 
 .ph-product-image-wrap {
   position: relative;
+  position: relative;
   overflow: hidden;
 
   aspect-ratio: 4 / 3;

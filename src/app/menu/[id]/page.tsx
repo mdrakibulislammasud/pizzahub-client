@@ -90,7 +90,6 @@ export default function PizzaDetailsPage() {
   const [deliveryAddress, setDeliveryAddress] = useState("");
   const [message, setMessage] = useState("");
 
-  // NEW: CUSTOMER QUANTITY
   const [quantity, setQuantity] = useState(1);
 
   // LOAD AUTHENTICATED USER AND PIZZA
@@ -204,8 +203,9 @@ export default function PizzaDetailsPage() {
       return;
     }
 
-    if (!deliveryDate || deliveryDate <= today()) {
-      toast.error("Select a valid future delivery date.");
+    // TODAY IS ALSO A VALID DELIVERY DATE
+    if (!deliveryDate || deliveryDate < today()) {
+      toast.error("Select today or a future delivery date.");
       return;
     }
 
@@ -334,7 +334,6 @@ export default function PizzaDetailsPage() {
     ? item.images.filter(Boolean)
     : [];
 
-  // NEW: LIVE SUBTOTAL
   const subtotal = item.price * quantity;
 
   const vendorName =
@@ -499,248 +498,248 @@ export default function PizzaDetailsPage() {
 
               </div>
 
-              {/* ORDER FORM */}
-
-              {ordered ? (
-                <div className="mt-8 rounded-2xl border border-[#E51B23] bg-[#141414] p-6 text-center">
-
-                  <CheckCircle
-                    size={46}
-                    className="mx-auto text-[#FF4545]"
-                  />
-
-                  <h2 className="mt-4 text-xl font-bold">
-                    Order Successful
-                  </h2>
-
-                  <p className="mt-3">
-                    Your order request has been submitted.
-                  </p>
-
-                  <Link
-                    href="/menu"
-                    className="mt-6 inline-flex rounded-lg bg-[#C9151B] px-6 py-3 font-semibold"
-                  >
-                    Continue Browsing
-                  </Link>
-
-                </div>
-              ) : user?.role === "customer" && !user.isBlocked ? (
-
-                <form
-                  onSubmit={placeOrder}
-                  className="mt-8 rounded-2xl border border-[#351010] bg-[#141414] p-6"
-                >
-
-                  <h2 className="flex items-center gap-3 text-2xl font-bold">
-                    <ShoppingBag
-                      className="text-[#E51B23]"
-                    />
-
-                    Place Your Order
-                  </h2>
-
-                  <div className="mt-6 space-y-5">
-
-                    {/* QUANTITY SELECTOR */}
-
-                    <div className="rounded-xl border border-[#351010] bg-[#080808] p-4">
-
-                      <div className="flex items-center justify-between gap-4">
-
-                        <div>
-                          <p className="font-semibold">
-                            Quantity
-                          </p>
-
-                          <p className="mt-1 text-sm text-gray-400">
-                            Choose 1 to 99 pizzas
-                          </p>
-                        </div>
-
-                        <div className="flex shrink-0 items-center gap-3 sm:gap-4">
-
-                          <button
-                            type="button"
-                            aria-label="Decrease quantity"
-                            disabled={quantity <= 1 || ordering}
-                            onClick={() =>
-                              setQuantity((current) =>
-                                Math.max(1, current - 1)
-                              )
-                            }
-                            className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#5A2020] text-xl font-bold transition hover:bg-[#351010] disabled:cursor-not-allowed disabled:opacity-40"
-                          >
-                            {"\u2212"}
-                          </button>
-
-                          <span className="min-w-8 text-center text-xl font-bold tabular-nums">
-                            {quantity}
-                          </span>
-
-                          <button
-                            type="button"
-                            aria-label="Increase quantity"
-                            disabled={quantity >= 99 || ordering}
-                            onClick={() =>
-                              setQuantity((current) =>
-                                Math.min(99, current + 1)
-                              )
-                            }
-                            className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#5A2020] text-xl font-bold transition hover:bg-[#351010] disabled:cursor-not-allowed disabled:opacity-40"
-                          >
-                            +
-                          </button>
-
-                        </div>
-
-                      </div>
-
-                    </div>
-
-                    {/* DELIVERY DATE */}
-
-                    <label className="block">
-
-                      <span className="mb-2 flex items-center gap-2 text-sm font-semibold">
-                        <CalendarDays size={16} />
-                        Delivery Date
-                      </span>
-
-                      <input
-                        type="date"
-                        required
-                        min={today()}
-                        value={deliveryDate}
-                        onChange={(event) =>
-                          setDeliveryDate(event.target.value)
-                        }
-                        className="w-full rounded-xl border border-[#351010] bg-[#080808] p-3 text-white outline-none focus:border-[#E51B23]"
-                      />
-
-                    </label>
-
-                    {/* DELIVERY ADDRESS */}
-
-                    <label className="block">
-
-                      <span className="mb-2 block text-sm font-semibold">
-                        Delivery Address
-                      </span>
-
-                      <textarea
-                        required
-                        minLength={5}
-                        rows={3}
-                        value={deliveryAddress}
-                        onChange={(event) =>
-                          setDeliveryAddress(event.target.value)
-                        }
-                        placeholder="House, road, area and city"
-                        className="w-full resize-y rounded-xl border border-[#351010] bg-[#080808] p-3 text-white outline-none focus:border-[#E51B23]"
-                      />
-
-                    </label>
-
-                    {/* CUSTOMER MESSAGE */}
-
-                    <label className="block">
-
-                      <span className="mb-2 block text-sm font-semibold">
-                        Customer Message
-                      </span>
-
-                      <textarea
-                        rows={3}
-                        value={message}
-                        onChange={(event) =>
-                          setMessage(event.target.value)
-                        }
-                        placeholder="Special instructions (optional)"
-                        className="w-full resize-y rounded-xl border border-[#351010] bg-[#080808] p-3 text-white outline-none focus:border-[#E51B23]"
-                      />
-
-                    </label>
-
-                    {/* PRICE SUMMARY */}
-
-                    <div className="space-y-3 border-t border-[#351010] pt-5">
-
-                      <div className="flex items-center justify-between gap-4">
-                        <span className="text-sm text-gray-400">
-                          Unit Price
-                        </span>
-
-                        <span className="font-semibold">
-                          {formatPrice(item.price)}
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between gap-4">
-                        <span className="text-sm text-gray-400">
-                          Quantity
-                        </span>
-
-                        <span className="font-semibold">
-                          {"\u00D7"} {quantity}
-                        </span>
-                      </div>
-
-                      <div className="flex items-center justify-between gap-4 border-t border-[#351010] pt-4">
-                        <span className="text-lg font-bold">
-                          Subtotal
-                        </span>
-
-                        <span className="text-2xl font-extrabold text-[#FF4545]">
-                          {formatPrice(subtotal)}
-                        </span>
-                      </div>
-
-                    </div>
-
-                    {/* SUBMIT ORDER */}
-
-                    <button
-                      type="submit"
-                      disabled={ordering}
-                      className="flex min-h-14 w-full items-center justify-center gap-3 rounded-xl bg-[#C9151B] px-5 font-bold text-white transition hover:bg-[#E51B23] disabled:opacity-50"
-                    >
-
-                      {ordering ? (
-                        <>
-                          <LoaderCircle
-                            size={20}
-                            className="animate-spin"
-                          />
-
-                          Placing Order...
-                        </>
-                      ) : (
-                        <>
-                          Place Order
-                          <ArrowRight size={19} />
-                        </>
-                      )}
-
-                    </button>
-
-                  </div>
-
-                </form>
-
-              ) : (
-
-                <div className="mt-8 rounded-xl border border-[#351010] bg-[#141414] p-5">
-
-                  Only customer accounts can place orders.
-
-                </div>
-
-              )}
-
             </motion.div>
 
           </div>
+
+          {/* ORDER FORM */}
+
+          {ordered ? (
+            <div className="mt-10 w-full rounded-2xl border border-[#E51B23] bg-[#141414] p-6 text-center">
+
+              <CheckCircle
+                size={46}
+                className="mx-auto text-[#FF4545]"
+              />
+
+              <h2 className="mt-4 text-xl font-bold">
+                Order Successful
+              </h2>
+
+              <p className="mt-3">
+                Your order request has been submitted.
+              </p>
+
+              <Link
+                href="/menu"
+                className="mt-6 inline-flex rounded-lg bg-[#C9151B] px-6 py-3 font-semibold"
+              >
+                Continue Browsing
+              </Link>
+
+            </div>
+          ) : user?.role === "customer" && !user.isBlocked ? (
+
+            <form
+              onSubmit={placeOrder}
+              className="mt-10 w-full rounded-2xl border border-[#351010] bg-[#141414] p-6 sm:p-8"
+            >
+
+              <h2 className="flex items-center gap-3 text-2xl font-bold">
+                <ShoppingBag
+                  className="text-[#E51B23]"
+                />
+
+                Place Your Order
+              </h2>
+
+              <div className="mt-6 grid grid-cols-1 gap-5 lg:grid-cols-2">
+
+                {/* QUANTITY SELECTOR */}
+
+                <div className="rounded-xl border border-[#351010] bg-[#080808] p-4 lg:col-span-2">
+
+                  <div className="flex items-center justify-between gap-4">
+
+                    <div>
+                      <p className="font-semibold">
+                        Quantity
+                      </p>
+
+                      <p className="mt-1 text-sm text-gray-400">
+                        Choose 1 to 99 pizzas
+                      </p>
+                    </div>
+
+                    <div className="flex shrink-0 items-center gap-3 sm:gap-4">
+
+                      <button
+                        type="button"
+                        aria-label="Decrease quantity"
+                        disabled={quantity <= 1 || ordering}
+                        onClick={() =>
+                          setQuantity((current) =>
+                            Math.max(1, current - 1)
+                          )
+                        }
+                        className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#5A2020] text-xl font-bold transition hover:bg-[#351010] disabled:cursor-not-allowed disabled:opacity-40"
+                      >
+                        {"\u2212"}
+                      </button>
+
+                      <span className="min-w-8 text-center text-xl font-bold tabular-nums">
+                        {quantity}
+                      </span>
+
+                      <button
+                        type="button"
+                        aria-label="Increase quantity"
+                        disabled={quantity >= 99 || ordering}
+                        onClick={() =>
+                          setQuantity((current) =>
+                            Math.min(99, current + 1)
+                          )
+                        }
+                        className="grid h-10 w-10 shrink-0 place-items-center rounded-lg border border-[#5A2020] text-xl font-bold transition hover:bg-[#351010] disabled:cursor-not-allowed disabled:opacity-40"
+                      >
+                        +
+                      </button>
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                {/* DELIVERY DATE */}
+
+                <label className="block">
+
+                  <span className="mb-2 flex items-center gap-2 text-sm font-semibold">
+                    <CalendarDays size={16} />
+                    Delivery Date
+                  </span>
+
+                  <input
+                    type="date"
+                    required
+                    min={today()}
+                    value={deliveryDate}
+                    onChange={(event) =>
+                      setDeliveryDate(event.target.value)
+                    }
+                    className="w-full rounded-xl border border-[#351010] bg-[#080808] p-3 text-white outline-none focus:border-[#E51B23]"
+                  />
+
+                </label>
+
+                {/* DELIVERY ADDRESS */}
+
+                <label className="block">
+
+                  <span className="mb-2 block text-sm font-semibold">
+                    Delivery Address
+                  </span>
+
+                  <textarea
+                    required
+                    minLength={5}
+                    rows={3}
+                    value={deliveryAddress}
+                    onChange={(event) =>
+                      setDeliveryAddress(event.target.value)
+                    }
+                    placeholder="House, road, area and city"
+                    className="w-full resize-y rounded-xl border border-[#351010] bg-[#080808] p-3 text-white outline-none focus:border-[#E51B23]"
+                  />
+
+                </label>
+
+                {/* CUSTOMER MESSAGE */}
+
+                <label className="block lg:col-span-2">
+
+                  <span className="mb-2 block text-sm font-semibold">
+                    Customer Message
+                  </span>
+
+                  <textarea
+                    rows={3}
+                    value={message}
+                    onChange={(event) =>
+                      setMessage(event.target.value)
+                    }
+                    placeholder="Special instructions (optional)"
+                    className="w-full resize-y rounded-xl border border-[#351010] bg-[#080808] p-3 text-white outline-none focus:border-[#E51B23]"
+                  />
+
+                </label>
+
+                {/* PRICE SUMMARY */}
+
+                <div className="space-y-3 border-t border-[#351010] pt-5 lg:col-span-2">
+
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="text-sm text-gray-400">
+                      Unit Price
+                    </span>
+
+                    <span className="font-semibold">
+                      {formatPrice(item.price)}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-4">
+                    <span className="text-sm text-gray-400">
+                      Quantity
+                    </span>
+
+                    <span className="font-semibold">
+                      {"\u00D7"} {quantity}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center justify-between gap-4 border-t border-[#351010] pt-4">
+                    <span className="text-lg font-bold">
+                      Subtotal
+                    </span>
+
+                    <span className="text-2xl font-extrabold text-[#FF4545]">
+                      {formatPrice(subtotal)}
+                    </span>
+                  </div>
+
+                </div>
+
+                {/* SUBMIT ORDER */}
+
+                <button
+                  type="submit"
+                  disabled={ordering}
+                  className="flex min-h-14 w-full items-center justify-center gap-3 rounded-xl bg-[#C9151B] px-5 font-bold text-white transition hover:bg-[#E51B23] disabled:opacity-50 lg:col-span-2"
+                >
+
+                  {ordering ? (
+                    <>
+                      <LoaderCircle
+                        size={20}
+                        className="animate-spin"
+                      />
+
+                      Placing Order...
+                    </>
+                  ) : (
+                    <>
+                      Place Order
+                      <ArrowRight size={19} />
+                    </>
+                  )}
+
+                </button>
+
+              </div>
+
+            </form>
+
+          ) : (
+
+            <div className="mt-10 w-full rounded-xl border border-[#351010] bg-[#141414] p-5">
+
+              Only customer accounts can place orders.
+
+            </div>
+
+          )}
 
           <ReviewSection
             itemId={item._id}

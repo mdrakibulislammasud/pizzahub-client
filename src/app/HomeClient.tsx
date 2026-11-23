@@ -1,4 +1,4 @@
-﻿
+
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
@@ -235,6 +235,7 @@ export default function HomeClient() {
 
   const [items, setItems] = useState<MenuItem[]>([]);
   const [user, setUser] = useState<User | null>(null);
+  const [favoriteIds, setFavoriteIds] = useState<string[]>([]);
 
   const [loading, setLoading] = useState(true);
   const [authLoading, setAuthLoading] = useState(true);
@@ -349,7 +350,27 @@ export default function HomeClient() {
           : null;
 
         if (!controller.signal.aborted) {
-          setUser(data?.user ?? null);
+          const account = data?.user ?? null;
+          setUser(account);
+
+          if (account?.id) {
+            try {
+              const stored = JSON.parse(
+                localStorage.getItem(`pizzahub-favorites:${account.id}`) || "[]"
+              ) as unknown;
+              setFavoriteIds(
+                Array.isArray(stored)
+                  ? [...new Set(stored.filter((id): id is string =>
+                      typeof id === "string" && /^[0-9a-f]{24}$/i.test(id)
+                    ))].slice(0, 100)
+                  : []
+              );
+            } catch {
+              setFavoriteIds([]);
+            }
+          } else {
+            setFavoriteIds([]);
+          }
         }
       } catch {
         if (!controller.signal.aborted) {
@@ -409,6 +430,33 @@ export default function HomeClient() {
     document
       .getElementById("menu")
       ?.scrollIntoView({ block: "start" });
+  }
+
+  function toggleFavorite(item: MenuItem) {
+    if (authLoading) return;
+    if (!user) {
+      toast.error("Please sign in to save favorites.");
+      router.push("/sign-in");
+      return;
+    }
+    if (user.role !== "customer") {
+      toast.error("Favorites are available for customer accounts only.");
+      return;
+    }
+
+    const key = `pizzahub-favorites:${user.id}`;
+    const exists = favoriteIds.includes(item._id);
+    const updated = exists
+      ? favoriteIds.filter((id) => id !== item._id)
+      : [...favoriteIds, item._id].slice(-100);
+
+    try {
+      localStorage.setItem(key, JSON.stringify(updated));
+      setFavoriteIds(updated);
+      toast.success(exists ? "Removed from favorites." : "Added to favorites.");
+    } catch {
+      toast.error("Unable to update favorites. Check your browser storage settings.");
+    }
   }
 
   function openDetails(item: MenuItem) {
@@ -968,12 +1016,32 @@ export default function HomeClient() {
 
       data-ph-clickable-pizza="true"
       onClickCapture={(event) => {
+        // Let the dedicated favorite control handle its own click.
+        if ((event.target as HTMLElement).closest("[data-favorite-toggle=\"true\"]")) {
+          return;
+        }
         event.preventDefault();
         event.stopPropagation();
         openDetails(item);
       }}
     >
                       <div className="ph-product-image-wrap">
+
+                        <button
+                          type="button"
+                          data-favorite-toggle="true"
+                          onClick={(event) => {
+                            event.stopPropagation();
+                            toggleFavorite(item);
+                          }}
+                          onKeyDown={(event) => event.stopPropagation()}
+                          aria-label={favoriteIds.includes(item._id) ? `Remove ${item.itemName} from favorites` : `Add ${item.itemName} to favorites`}
+                          aria-pressed={favoriteIds.includes(item._id)}
+                          title={favoriteIds.includes(item._id) ? "Remove from Favorites" : "Add to Favorites"}
+                          className="absolute right-3 top-3 z-20 grid h-10 w-10 place-items-center rounded-full border border-white/20 bg-black/65 text-white shadow-lg backdrop-blur transition hover:scale-105 hover:bg-black/85"
+                        >
+                          <Heart size={19} className={favoriteIds.includes(item._id) ? "fill-[#E51B23] text-[#E51B23]" : "text-white"} />
+                        </button>
 
                         <FoodImage
                           key={item.images?.[0]}

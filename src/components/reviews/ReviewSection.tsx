@@ -1,8 +1,10 @@
-﻿"use client";
+﻿
+"use client";
 
-import { useEffect, useState, type FormEvent } from "react";
+import { useCallback, useEffect, useState, type FormEvent } from "react";
 import { Star, LoaderCircle, Send } from "lucide-react";
 import { toast } from "sonner";
+import { authClient } from "@/lib/auth-client";
 
 const API = (
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000"
@@ -23,13 +25,51 @@ interface ReviewStats {
   totalReviews: number;
 }
 
+interface User {
+  role: string;
+  isBlocked?: boolean;
+}
+
 interface Props {
   itemId: string;
   vendorId: string;
-  user: {
-    role: string;
-    isBlocked?: boolean;
-  } | null;
+  user: User | null;
+}
+
+interface StarsProps {
+  value: number;
+  interactive?: boolean;
+  onChange?: (rating: number) => void;
+}
+
+interface ReviewFormProps {
+  type: "item" | "restaurant";
+  rating: number;
+  setRating: (value: number) => void;
+  comment: string;
+  setComment: (value: string) => void;
+  submitting: boolean;
+  onSubmit: (
+    event: FormEvent<HTMLFormElement>,
+    type: "item" | "restaurant"
+  ) => void;
+}
+
+interface ReviewGroupProps {
+  title: string;
+  stats: ReviewStats;
+  type: "item" | "restaurant";
+  rating: number;
+  setRating: (value: number) => void;
+  comment: string;
+  setComment: (value: string) => void;
+  loading: boolean;
+  submitting: boolean;
+  user: User | null;
+  onSubmit: (
+    event: FormEvent<HTMLFormElement>,
+    type: "item" | "restaurant"
+  ) => void;
 }
 
 const emptyStats: ReviewStats = {
@@ -38,8 +78,19 @@ const emptyStats: ReviewStats = {
   totalReviews: 0,
 };
 
-function extractStats(payload: any): ReviewStats {
-  const data = payload?.data ?? payload ?? {};
+function extractStats(payload: unknown): ReviewStats {
+  const response = payload as {
+    data?: {
+      reviews?: Review[];
+      averageRating?: number;
+      totalReviews?: number;
+    };
+    reviews?: Review[];
+    averageRating?: number;
+    totalReviews?: number;
+  };
+
+  const data = response?.data ?? response ?? {};
 
   return {
     reviews: Array.isArray(data.reviews) ? data.reviews : [],
@@ -48,15 +99,7 @@ function extractStats(payload: any): ReviewStats {
   };
 }
 
-function Stars({
-  value,
-  interactive = false,
-  onChange,
-}: {
-  value: number;
-  interactive?: boolean;
-  onChange?: (rating: number) => void;
-}) {
+function Stars({ value, interactive = false, onChange }: StarsProps) {
   return (
     <div className="flex items-center gap-1">
       {[1, 2, 3, 4, 5].map((star) =>
@@ -65,6 +108,7 @@ function Stars({
             key={star}
             type="button"
             aria-label={`Rate ${star} out of 5`}
+            aria-pressed={star === value}
             onClick={() => onChange?.(star)}
           >
             <Star
@@ -100,7 +144,7 @@ function ReviewCard({ review }: { review: Review }) {
           {review.reviewerImage ? (
             <img
               src={review.reviewerImage}
-              alt=""
+              alt={review.reviewerName || "Customer"}
               className="h-10 w-10 rounded-full object-cover"
             />
           ) : (
@@ -108,6 +152,7 @@ function ReviewCard({ review }: { review: Review }) {
               {(review.reviewerName || "C").charAt(0).toUpperCase()}
             </div>
           )}
+
           <div>
             <p className="font-semibold">
               {review.reviewerName || "Customer"}
@@ -119,12 +164,147 @@ function ReviewCard({ review }: { review: Review }) {
             </p>
           </div>
         </div>
+
         <Stars value={review.rating} />
       </div>
+
       <p className="mt-3 whitespace-pre-wrap text-sm leading-6 text-gray-300">
         {review.comment}
       </p>
     </article>
+  );
+}
+
+function ReviewForm({
+  type,
+  rating,
+  setRating,
+  comment,
+  setComment,
+  submitting,
+  onSubmit,
+}: ReviewFormProps) {
+  return (
+    <form
+      onSubmit={(event) => onSubmit(event, type)}
+      className="mt-5 rounded-xl border border-[#351010] bg-[#101010] p-5"
+    >
+      <label className="mb-3 block text-sm font-semibold">
+        Your rating
+      </label>
+
+      <Stars value={rating} interactive onChange={setRating} />
+
+      <label className="mb-2 mt-5 block text-sm font-semibold">
+        Your review
+      </label>
+
+      <textarea
+        required
+        minLength={3}
+        maxLength={500}
+        rows={3}
+        value={comment}
+        onChange={(event) => setComment(event.target.value)}
+        placeholder="Share your experience..."
+        className="w-full resize-y rounded-xl border border-[#351010] bg-[#080808] p-3 text-white outline-none focus:border-[#E51B23]"
+      />
+
+      <div className="mt-3 flex items-center justify-between gap-3">
+        <span className="text-xs text-gray-500">
+          {comment.length}/500 characters
+        </span>
+
+        <button
+          type="submit"
+          disabled={submitting}
+          className="inline-flex items-center gap-2 rounded-lg bg-[#C9151B] px-5 py-3 text-sm font-bold hover:bg-[#E51B23] disabled:cursor-not-allowed disabled:opacity-50"
+        >
+          {submitting ? (
+            <LoaderCircle size={17} className="animate-spin" />
+          ) : (
+            <Send size={16} />
+          )}
+
+          {submitting ? "Submitting..." : "Submit Review"}
+        </button>
+      </div>
+    </form>
+  );
+}
+
+function ReviewGroup({
+  title,
+  stats,
+  type,
+  rating,
+  setRating,
+  comment,
+  setComment,
+  loading,
+  submitting,
+  user,
+  onSubmit,
+}: ReviewGroupProps) {
+  return (
+    <section className="rounded-2xl border border-[#351010] bg-[#141414] p-5 sm:p-7">
+      <div className="flex flex-wrap items-center justify-between gap-4">
+        <h3 className="font-serif text-2xl font-bold">{title}</h3>
+
+        <div className="flex items-center gap-3">
+          <span className="text-2xl font-bold text-[#FFB800]">
+            {stats.averageRating.toFixed(1)}
+          </span>
+
+          <div>
+            <Stars value={Math.round(stats.averageRating)} />
+            <p className="mt-1 text-xs text-gray-400">
+              {stats.totalReviews} reviews
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {loading ? (
+        <div className="flex justify-center py-8">
+          <LoaderCircle
+            className="animate-spin text-[#E51B23]"
+            size={28}
+          />
+        </div>
+      ) : stats.reviews.length > 0 ? (
+        <div className="mt-6 space-y-3">
+          {stats.reviews.map((review, index) => (
+            <ReviewCard
+              key={`${review.reviewerId}-${review.createdAt}-${index}`}
+              review={review}
+            />
+          ))}
+        </div>
+      ) : (
+        <p className="mt-6 rounded-xl bg-[#101010] p-5 text-center text-sm text-gray-400">
+          No reviews yet. Be the first to share your experience!
+        </p>
+      )}
+
+      {user?.role === "customer" && !user.isBlocked && (
+        <ReviewForm
+          type={type}
+          rating={rating}
+          setRating={setRating}
+          comment={comment}
+          setComment={setComment}
+          submitting={submitting}
+          onSubmit={onSubmit}
+        />
+      )}
+
+      {!user && (
+        <p className="mt-5 text-sm text-gray-400">
+          Sign in as a customer to submit a review.
+        </p>
+      )}
+    </section>
   );
 }
 
@@ -133,24 +313,32 @@ export default function ReviewSection({
   vendorId,
   user,
 }: Props) {
-  const [itemStats, setItemStats] = useState(emptyStats);
-  const [restaurantStats, setRestaurantStats] = useState(emptyStats);
+  const [itemStats, setItemStats] = useState<ReviewStats>(emptyStats);
+  const [restaurantStats, setRestaurantStats] =
+    useState<ReviewStats>(emptyStats);
+
   const [loading, setLoading] = useState(true);
-  const [submitting, setSubmitting] = useState<"item" | "restaurant" | null>(null);
+  const [submitting, setSubmitting] = useState<
+    "item" | "restaurant" | null
+  >(null);
 
   const [itemRating, setItemRating] = useState(5);
   const [restaurantRating, setRestaurantRating] = useState(5);
+
   const [itemComment, setItemComment] = useState("");
   const [restaurantComment, setRestaurantComment] = useState("");
 
-  async function loadReviews() {
+  const loadReviews = useCallback(async () => {
+    if (!itemId || !vendorId) return;
+
     setLoading(true);
 
     try {
       const [itemResponse, restaurantResponse] = await Promise.all([
-        fetch(`${API}/api/menu/${encodeURIComponent(itemId)}/reviews`, {
-          cache: "no-store",
-        }),
+        fetch(
+          `${API}/api/menu/${encodeURIComponent(itemId)}/reviews`,
+          { cache: "no-store" }
+        ),
         fetch(
           `${API}/api/menu/restaurant/${encodeURIComponent(vendorId)}/reviews`,
           { cache: "no-store" }
@@ -175,21 +363,19 @@ export default function ReviewSection({
     } finally {
       setLoading(false);
     }
-  }
+  }, [itemId, vendorId]);
 
   useEffect(() => {
-    if (itemId && vendorId) {
-      loadReviews();
-    }
-    // loadReviews is intentionally triggered when the item/vendor changes.
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [itemId, vendorId]);
+    loadReviews();
+  }, [loadReviews]);
 
   async function submitReview(
     event: FormEvent<HTMLFormElement>,
     type: "item" | "restaurant"
   ) {
     event.preventDefault();
+
+    if (submitting) return;
 
     if (user?.role !== "customer" || user.isBlocked) {
       toast.error("Only active customer accounts can submit reviews.");
@@ -208,19 +394,15 @@ export default function ReviewSection({
     try {
       setSubmitting(type);
 
-      const tokenResponse = await fetch(`${API}/api/auth/token`, {
-        credentials: "include",
-        cache: "no-store",
-      });
+      // Get the authenticated user's JWT from Better Auth.
+      const { data: tokenData, error: tokenError } =
+        await authClient.token();
 
-      if (!tokenResponse.ok) {
-        throw new Error("Unable to verify your session. Please sign in again.");
-      }
-
-      const tokenData = await tokenResponse.json();
-
-      if (!tokenData.token) {
-        throw new Error("Authentication token not found.");
+      if (tokenError || !tokenData?.token) {
+        throw new Error(
+          tokenError?.message ||
+            "Unable to verify your session. Please sign in again."
+        );
       }
 
       const endpoint =
@@ -244,7 +426,9 @@ export default function ReviewSection({
       const result = await response.json().catch(() => null);
 
       if (!response.ok || result?.success === false) {
-        throw new Error(result?.message || "Unable to submit your review.");
+        throw new Error(
+          result?.message || `Unable to submit ${type} review.`
+        );
       }
 
       toast.success("Your review has been submitted!");
@@ -260,141 +444,13 @@ export default function ReviewSection({
       await loadReviews();
     } catch (error) {
       toast.error(
-        error instanceof Error ? error.message : "Unable to submit review."
+        error instanceof Error
+          ? error.message
+          : "Unable to submit review."
       );
     } finally {
       setSubmitting(null);
     }
-  }
-
-  function ReviewForm({
-    type,
-    rating,
-    setRating,
-    comment,
-    setComment,
-  }: {
-    type: "item" | "restaurant";
-    rating: number;
-    setRating: (value: number) => void;
-    comment: string;
-    setComment: (value: string) => void;
-  }) {
-    return (
-      <form
-        onSubmit={(event) => submitReview(event, type)}
-        className="mt-5 rounded-xl border border-[#351010] bg-[#101010] p-5"
-      >
-        <label className="mb-3 block text-sm font-semibold">
-          Your rating
-        </label>
-        <Stars value={rating} interactive onChange={setRating} />
-
-        <label className="mb-2 mt-5 block text-sm font-semibold">
-          Your review
-        </label>
-        <textarea
-          required
-          minLength={3}
-          maxLength={500}
-          rows={3}
-          value={comment}
-          onChange={(event) => setComment(event.target.value)}
-          placeholder="Share your experience..."
-          className="w-full resize-y rounded-xl border border-[#351010] bg-[#080808] p-3 text-white outline-none focus:border-[#E51B23]"
-        />
-
-        <div className="mt-3 flex items-center justify-between gap-3">
-          <span className="text-xs text-gray-500">
-            {comment.length}/500 characters
-          </span>
-          <button
-            type="submit"
-            disabled={submitting !== null}
-            className="inline-flex items-center gap-2 rounded-lg bg-[#C9151B] px-5 py-3 text-sm font-bold hover:bg-[#E51B23] disabled:opacity-50"
-          >
-            {submitting === type ? (
-              <LoaderCircle size={17} className="animate-spin" />
-            ) : (
-              <Send size={16} />
-            )}
-            {submitting === type ? "Submitting..." : "Submit Review"}
-          </button>
-        </div>
-      </form>
-    );
-  }
-
-  function ReviewGroup({
-    title,
-    stats,
-    type,
-    rating,
-    setRating,
-    comment,
-    setComment,
-  }: {
-    title: string;
-    stats: ReviewStats;
-    type: "item" | "restaurant";
-    rating: number;
-    setRating: (value: number) => void;
-    comment: string;
-    setComment: (value: string) => void;
-  }) {
-    return (
-      <section className="rounded-2xl border border-[#351010] bg-[#141414] p-5 sm:p-7">
-        <div className="flex flex-wrap items-center justify-between gap-4">
-          <h3 className="font-serif text-2xl font-bold">{title}</h3>
-          <div className="flex items-center gap-3">
-            <span className="text-2xl font-bold text-[#FFB800]">
-              {stats.averageRating.toFixed(1)}
-            </span>
-            <div>
-              <Stars value={Math.round(stats.averageRating)} />
-              <p className="mt-1 text-xs text-gray-400">
-                {stats.totalReviews} reviews
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {loading ? (
-          <div className="flex justify-center py-8">
-            <LoaderCircle className="animate-spin text-[#E51B23]" size={28} />
-          </div>
-        ) : stats.reviews.length ? (
-          <div className="mt-6 space-y-3">
-            {stats.reviews.map((review, index) => (
-              <ReviewCard
-                key={`${review.reviewerId}-${index}`}
-                review={review}
-              />
-            ))}
-          </div>
-        ) : (
-          <p className="mt-6 rounded-xl bg-[#101010] p-5 text-center text-sm text-gray-400">
-            No reviews yet. Be the first to share your experience!
-          </p>
-        )}
-
-        {user?.role === "customer" && !user.isBlocked && (
-          <ReviewForm
-            type={type}
-            rating={rating}
-            setRating={setRating}
-            comment={comment}
-            setComment={setComment}
-          />
-        )}
-
-        {!user && (
-          <p className="mt-5 text-sm text-gray-400">
-            Sign in as a customer to submit a review.
-          </p>
-        )}
-      </section>
-    );
   }
 
   return (
@@ -403,9 +459,11 @@ export default function ReviewSection({
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#FF4545]">
           Customer feedback
         </p>
+
         <h2 className="mt-2 font-serif text-3xl font-bold sm:text-4xl">
           Reviews & Ratings
         </h2>
+
         <p className="mt-2 text-gray-400">
           Honest experiences from our PizzaHub customers.
         </p>
@@ -419,6 +477,10 @@ export default function ReviewSection({
         setRating={setItemRating}
         comment={itemComment}
         setComment={setItemComment}
+        loading={loading}
+        submitting={submitting === "item"}
+        user={user}
+        onSubmit={submitReview}
       />
 
       <ReviewGroup
@@ -429,6 +491,10 @@ export default function ReviewSection({
         setRating={setRestaurantRating}
         comment={restaurantComment}
         setComment={setRestaurantComment}
+        loading={loading}
+        submitting={submitting === "restaurant"}
+        user={user}
+        onSubmit={submitReview}
       />
     </section>
   );
