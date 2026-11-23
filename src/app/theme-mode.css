@@ -1,10 +1,16 @@
-ï»¿/* ==========================================
-   PIZZAHUB LIGHT THEME
-   Warm cream + dark brown + pizza red
-========================================== */
+
+/* =========================================================
+   PIZZAHUB — GLOBAL LIGHT & DARK THEME
+   Light: Warm cream, white surfaces, dark readable text
+   Dark: Existing dark design remains unchanged
+========================================================= */
+
+/* ---------------------------------------------------------
+   LIGHT THEME VARIABLES
+--------------------------------------------------------- */
 
 html.light {
-  color-scheme: light !important;
+  color-scheme: light;
 
   --background: #FAF6EE;
   --foreground: #35251F;
@@ -33,69 +39,359 @@ html.light {
   --ph-border: #E9DCCB;
   --ph-muted: #76665E;
 
+  background: #FAF6EE;
+}
+
+/* ---------------------------------------------------------
+   GLOBAL PAGE BACKGROUND
+--------------------------------------------------------- */
+
+html.light,
+html.light body {
   background: #FAF6EE !important;
+  color: #35251F;
+  color-scheme: light;
+  min-height: 100%;
+}
+
+html.light #__next,
+html.light body > div {
+  background-color: #FAF6EE;
 }
 
 html.light body {
-  background: #FAF6EE !important;
-  color: #35251F !important;
-  color-scheme: light !important;
+  margin: 0;
 }
 
 html.light .ph {
   background-color: #FAF6EE !important;
-  color: #35251F !important;
+  color: #35251F;
+  min-height: 100vh;
 }
 
-/* Navbar */
-
-html.light .ph-header,
-html.light .ph header,
-html.light body > header {
-  background: #FFFDF8 !important;
-  color: #35251F !important;
-  border-bottom: 1px solid #E9DCCB !important;
-  box-shadow: 0 5px 20px rgba(65, 40, 25, 0.07) !important;
+html.light .ph main {
+  background-color: #FAF6EE;
+  color: #35251F;
 }
 
-html.light .ph-nav {
-  background: transparent !important;
-}
-
-html.light .ph-logo > span:last-child,
-html.light .ph-footer .ph-logo > span:last-child {
-  color: #35251F !important;
-}
-
-/* Common cards and surfaces */
-
-html.light .ph-card,
-html.light .ph-menu-card,
-html.light .ph-featured-card,
-html.light .ph-category-card,
-html.light .ph-footer,
-html.light .ph-mobile-menu {
-  background-color: #FFFFFF !important;
-  color: #35251F !important;
-  border-color: #E9DCCB !important;
-}
-
-/* Typography */
+/* ---------------------------------------------------------
+   GLOBAL TYPOGRAPHY
+--------------------------------------------------------- */
 
 html.light h1,
 html.light h2,
 html.light h3,
 html.light h4,
 html.light h5,
-html.light h6,
-html.light p,
-html.light label,
-html.light .ph-title,
-html.light .ph-description {
+html.light h6 {
   color: #35251F;
 }
 
-/* Forms */
+html.light p,
+html.light label,
+html.light li,
+html.light small {
+  color: #5C4038;
+}
+
+html.light a {
+  color: inherit;
+}
+
+html.light svg {
+  color: inherit;
+}
+
+html.light .ph-title,
+html.light .ph-section-title {
+  color: #35251F;
+}
+
+html.light .ph-description,
+html.light .ph-subtitle,
+html.light .ph-muted {
+  color: #76665E;
+}
+
+/* ---------------------------------------------------------
+   HOMEPAGE SECTIONS
+--------------------------------------------------------- */
+
+html.light .ph main > section:not(.ph-hero),
+html.light .ph .ph-section {
+  background-color: #FAF6EE;
+  color: #35251F;
+}
+
+html.light .ph main > section:not(.ph-hero) h1,
+html.light .ph main > section:not(.ph-hero) h2,
+html.light .ph main > section:not(.ph-hero) h3,
+html.light .ph .ph-section h1,
+html.light .ph .ph-section h2,
+html.light .ph .ph-section h3 {
+  color: #35251F;
+}
+
+html.light .ph main > section:not(.ph-hero) p,
+html.light .ph .ph-section p {
+  color: #76665E;
+}
+
+/* Keep brand accent headings red */
+
+html.light .ph .ph-accent,
+html.light .ph .ph-highlight,
+html.light .ph .ph-section-heading span,
+html.light .ph .ph-section-title span {
+  color: #D9232E;
+}
+
+/* ---------------------------------------------------------
+   HERO SECTION
+--------------------------------------------------------- */
+
+html.light .ph-hero {
+  color: #35251F;
+}
+
+html.light .ph-hero h1,
+html.light .ph-hero h2,
+html.light .ph-hero h3 {
+  color: #35251F;
+}
+
+html.light .ph-hero p {
+  color: #76665E;
+}
+
+/* ---------------------------------------------------------
+   NAVBAR
+--------------------------------------------------------- */
+
+html.light .ph-header,
+html.light .ph header,
+html.light body > header {
+  background: #FFFDF8 !important;
+  color: #35251F !important;
+  border-bottom: 1px solid #E9DCCB;
+  box-shadow: 0 5px 20px rgba(65, 40, 25, 0.07);
+}
+
+html.light .ph-header *,
+html.light .ph header * {
+  color: #35251F;
+}
+
+html.light .ph-nav {
+  background: transparent;
+}
+
+html.light .ph-header a:hover,
+html.light .ph header a:hover {
+  color: #D9232E;
+}
+
+html.light .ph-logo > span:last-child {
+  color: #35251F;
+}
+
+html.light .ph-logo > span:last-child em {
+  color: #D9232E;
+}
+
+/* ---------------------------------------------------------
+   MOBILE NAVIGATION & DROPDOWNS
+--------------------------------------------------------- */
+
+html.light .ph-mobile-menu,
+html.light .ph-mobile-nav,
+html.light .ph-nav-dropdown,
+html.light .ph-user-dropdown {
+  background: #FFFFFF !important;
+  color: #35251F !important;
+  border-color: #E9DCCB !important;
+  box-shadow: 0 12px 30px rgba(65, 40, 25, 0.10);
+}
+
+html.light .ph-mobile-menu *,
+html.light .ph-mobile-nav *,
+html.light .ph-nav-dropdown *,
+html.light .ph-user-dropdown * {
+  color: #35251F;
+}
+
+/* ---------------------------------------------------------
+   COMMON CARDS
+--------------------------------------------------------- */
+
+html.light .ph-card,
+html.light .ph-menu-card,
+html.light .ph-featured-card,
+html.light .ph-category-card {
+  background: #FFFFFF !important;
+  color: #35251F !important;
+  border: 1px solid #E9DCCB;
+  box-shadow: 0 5px 20px rgba(65, 40, 25, 0.05);
+}
+
+html.light .ph-card h1,
+html.light .ph-card h2,
+html.light .ph-card h3,
+html.light .ph-menu-card h3,
+html.light .ph-featured-card h3 {
+  color: #35251F;
+}
+
+html.light .ph-card p,
+html.light .ph-menu-card p,
+html.light .ph-featured-card p {
+  color: #76665E;
+}
+
+/* ---------------------------------------------------------
+   DASHBOARD GLOBAL BACKGROUNDS
+--------------------------------------------------------- */
+
+html.light main,
+html.light aside,
+html.light section,
+html.light article {
+  color: #35251F;
+}
+
+/* Replace common hardcoded dark Tailwind backgrounds */
+
+html.light [class~="bg-black"],
+html.light [class~="bg-neutral-950"],
+html.light [class~="bg-neutral-900"],
+html.light [class~="bg-zinc-950"],
+html.light [class~="bg-zinc-900"],
+html.light [class~="bg-gray-950"],
+html.light [class~="bg-gray-900"],
+html.light [class~="bg-slate-950"],
+html.light [class~="bg-slate-900"],
+html.light [class~="bg-stone-950"],
+html.light [class~="bg-stone-900"],
+html.light [class*="bg-[#080808"],
+html.light [class*="bg-[#0B0B0B"],
+html.light [class*="bg-[#0b0b0b"],
+html.light [class*="bg-[#111111"],
+html.light [class*="bg-[#141414"],
+html.light [class*="bg-[#1A1A1A"],
+html.light [class*="bg-[#1a1a1a"],
+html.light [class*="bg-[#171717"],
+html.light [class*="bg-[#181818"],
+html.light [class*="bg-[#202020"] {
+  background-color: #FFFDF8 !important;
+}
+
+/* Dashboard sidebar */
+
+html.light aside {
+  background-color: #FFFDF8;
+  color: #35251F;
+  border-color: #E9DCCB;
+}
+
+html.light aside a,
+html.light aside button {
+  color: #5C4038;
+}
+
+html.light aside a:hover,
+html.light aside button:hover {
+  color: #D9232E;
+  background-color: #FCE9E5;
+}
+
+/* Dashboard main content */
+
+html.light main {
+  background-color: #FAF6EE;
+}
+
+/* ---------------------------------------------------------
+   DASHBOARD CARDS & STATISTICS
+--------------------------------------------------------- */
+
+html.light [class*="rounded"][class*="border"],
+html.light [class*="shadow"] {
+  border-color: #E9DCCB;
+}
+
+html.light [class*="bg-[#"] {
+  border-color: #E9DCCB;
+}
+
+/* ---------------------------------------------------------
+   DARK TEXT CLASSES
+--------------------------------------------------------- */
+
+html.light [class~="text-white"],
+html.light [class~="text-gray-100"],
+html.light [class~="text-gray-200"],
+html.light [class~="text-gray-300"],
+html.light [class~="text-slate-100"],
+html.light [class~="text-slate-200"],
+html.light [class~="text-zinc-100"],
+html.light [class~="text-zinc-200"] {
+  color: #35251F !important;
+}
+
+/* Keep muted text readable */
+
+html.light [class~="text-gray-400"],
+html.light [class~="text-gray-500"],
+html.light [class~="text-slate-400"],
+html.light [class~="text-slate-500"],
+html.light [class~="text-zinc-400"],
+html.light [class~="text-zinc-500"] {
+  color: #76665E !important;
+}
+
+/* Preserve red brand colors */
+
+html.light [class~="text-red-500"],
+html.light [class~="text-red-600"],
+html.light [class~="text-red-700"] {
+  color: #D9232E !important;
+}
+
+/* ---------------------------------------------------------
+   BUTTONS
+--------------------------------------------------------- */
+
+html.light .ph-button,
+html.light .ph-button *,
+html.light button.ph-button,
+html.light a.ph-button {
+  color: #FFFFFF !important;
+}
+
+html.light button,
+html.light [role="button"] {
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Primary red buttons */
+
+html.light button[class*="bg-red"],
+html.light a[class*="bg-red"],
+html.light button[class*="bg-[#D"],
+html.light a[class*="bg-[#D"] {
+  color: #FFFFFF;
+}
+
+/* Secondary buttons */
+
+html.light button[class*="bg-white"],
+html.light a[class*="bg-white"] {
+  color: #35251F;
+}
+
+/* ---------------------------------------------------------
+   FORMS & INPUTS
+--------------------------------------------------------- */
 
 html.light input,
 html.light textarea,
@@ -108,34 +404,110 @@ html.light select {
 html.light input::placeholder,
 html.light textarea::placeholder {
   color: #948278 !important;
+  opacity: 1;
 }
 
-/* Dashboard surfaces */
+html.light input:focus,
+html.light textarea:focus,
+html.light select:focus {
+  border-color: #D9232E !important;
+  outline-color: #D9232E;
+}
 
-html.light main,
-html.light aside,
-html.light section {
+html.light option {
+  background-color: #FFFFFF;
   color: #35251F;
 }
 
-html.light [class*="bg-black"],
-html.light [class*="bg-[#080808"],
-html.light [class*="bg-[#0B0B0B"],
-html.light [class*="bg-[#141414"],
-html.light [class*="bg-[#111111"],
-html.light [class*="bg-[#1A1A1A"] {
-  background-color: #FFFDF8 !important;
+/* ---------------------------------------------------------
+   TABLES
+--------------------------------------------------------- */
+
+html.light table {
+  background-color: #FFFFFF;
+  color: #35251F;
+  border-color: #E9DCCB;
 }
 
-html.light [class*="text-white"] {
-  color: #35251F !important;
+html.light thead,
+html.light th {
+  background-color: #F5EBDD;
+  color: #35251F;
 }
 
-html.light [class*="border-[#"] {
-  border-color: #E9DCCB !important;
+html.light tbody tr {
+  background-color: #FFFFFF;
+  color: #35251F;
 }
 
-/* Theme toggle */
+html.light tbody tr:nth-child(even) {
+  background-color: #FFFCF7;
+}
+
+html.light td {
+  color: #5C4038;
+  border-color: #E9DCCB;
+}
+
+/* ---------------------------------------------------------
+   BADGES & STATUS LABELS
+--------------------------------------------------------- */
+
+html.light [class*="badge"],
+html.light [class*="Badge"] {
+  border-color: #E9DCCB;
+}
+
+/* ---------------------------------------------------------
+   MODALS & DIALOGS
+--------------------------------------------------------- */
+
+html.light [role="dialog"],
+html.light [role="alertdialog"] {
+  background-color: #FFFFFF;
+  color: #35251F;
+  border-color: #E9DCCB;
+}
+
+html.light [role="dialog"] h1,
+html.light [role="dialog"] h2,
+html.light [role="dialog"] h3,
+html.light [role="dialog"] p {
+  color: #35251F;
+}
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+html.light .ph footer,
+html.light .ph .ph-footer,
+html.light body > footer {
+  background: #FFF8EF !important;
+  color: #35251F;
+  border-color: #E9DCCB;
+}
+
+html.light .ph footer *,
+html.light .ph .ph-footer * {
+  color: #35251F;
+}
+
+html.light .ph .ph-footer a:hover {
+  color: #D9232E;
+}
+
+html.light .ph-footer .ph-logo > span:last-child em {
+  color: #D9232E;
+}
+
+html.light .ph-footer-wave path {
+  fill: #FFF8EF;
+}
+
+/* ---------------------------------------------------------
+   THEME TOGGLE
+--------------------------------------------------------- */
 
 .ph-theme-toggle {
   display: inline-flex;
@@ -149,7 +521,10 @@ html.light [class*="border-[#"] {
   background: #171111;
   color: #FFD166;
   cursor: pointer;
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .ph-theme-toggle:hover {
@@ -162,13 +537,40 @@ html.light .ph-theme-toggle {
   border-color: #E9DCCB;
 }
 
+html.light .ph-theme-toggle svg {
+  color: #A84A16;
+}
+
 .ph-mobile-theme-toggle {
   display: flex;
   justify-content: center;
   padding: 12px;
 }
 
-/* Scrollbar */
+/* ---------------------------------------------------------
+   BORDERS & DIVIDERS
+--------------------------------------------------------- */
+
+html.light hr,
+html.light [class*="border-gray-"],
+html.light [class*="border-slate-"],
+html.light [class*="border-zinc-"],
+html.light [class*="border-neutral-"] {
+  border-color: #E9DCCB !important;
+}
+
+html.light [class*="border-[#"] {
+  border-color: #E9DCCB !important;
+}
+
+/* ---------------------------------------------------------
+   SCROLLBAR
+--------------------------------------------------------- */
+
+html.light ::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
 
 html.light ::-webkit-scrollbar-track {
   background: #FAF6EE;
@@ -176,135 +578,270 @@ html.light ::-webkit-scrollbar-track {
 
 html.light ::-webkit-scrollbar-thumb {
   background: #D9B8A5;
+  border-radius: 20px;
 }
 
-/* Selection */
+html.light ::-webkit-scrollbar-thumb:hover {
+  background: #B98D78;
+}
+
+/* ---------------------------------------------------------
+   SELECTION
+--------------------------------------------------------- */
 
 html.light ::selection {
   background: #D9232E;
   color: #FFFFFF;
 }
 
-/* FIX: LIGHT MODE TEXT VISIBILITY */
-html.light .ph main > section:not(.ph-hero),
-html.light .ph .ph-section {
+/* ---------------------------------------------------------
+   ACCESSIBILITY
+--------------------------------------------------------- */
+
+html.light :focus-visible {
+  outline: 2px solid #D9232E;
+  outline-offset: 3px;
+}
+
+html.light button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  html.light .ph-header,
+  html.light .ph header {
+    background: #FFFDF8 !important;
+  }
+
+  html.light aside {
+    background: #FFFDF8;
+  }
+
+  html.light main {
+    background: #FAF6EE;
+  }
+}
+
+/* ---------------------------------------------------------
+   REDUCE MOTION
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html.light *,
+  html.light *::before,
+  html.light *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+
+
+/* =========================================================
+   HOMEPAGE LIGHT THEME FIX
+   Targets the actual HomeClient.tsx section/card classes.
+   Keep this block at the VERY END of theme-mode.css.
+========================================================= */
+
+/* 1. Homepage section backgrounds */
+html.light body .ph main > section:not(.ph-hero),
+html.light body .ph main > #menu,
+html.light body .ph main > #categories,
+html.light body .ph main > #about,
+html.light body .ph main > .ph-collections-section,
+html.light body .ph main > .ph-steps-section,
+html.light body .ph main > .ph-benefits-section {
+  background: #FAF6EE !important;
+  background-color: #FAF6EE !important;
+  background-image: none !important;
+  color: #35251F !important;
+  border-color: #E9DCCB !important;
+}
+
+/* 2. Featured menu cards */
+html.light body .ph .ph-product-card {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
+  border: 1px solid #E9DCCB !important;
+  box-shadow: 0 5px 18px rgba(65, 40, 25, 0.08) !important;
+}
+
+html.light body .ph .ph-product-body {
+  background: #FFFFFF !important;
   color: #35251F !important;
 }
 
-html.light .ph main > section:not(.ph-hero) :is(
-  h1, h2, h3, h4, h5, h6,
-  p, li, label, small
-),
-html.light .ph .ph-section :is(
-  h1, h2, h3, h4, h5, h6,
-  p, li, label, small
-) {
+html.light body .ph .ph-product-card :is(h2, h3, h4, p, span, a) {
   color: #35251F !important;
 }
 
-/* Keep red heading accents */
-html.light .ph :is(h1, h2, h3, h4, h5, h6) :is(span, em),
-html.light .ph :is(.ph-section-heading, .ph-section-title) :is(span, em) {
-  color: #D9232E !important;
+html.light body .ph .ph-product-card .ph-category-badge {
+  background: #FFF3E7 !important;
+  color: #8B321F !important;
+  border-color: #E9DCCB !important;
 }
 
-/* Menu and product card text */
-html.light .ph #menu :is(
-  article, article p, article h1, article h2,
-  article h3, article h4, article span,
-  .ph-menu-card, .ph-menu-card p,
-  .ph-menu-card h3, .ph-menu-card span
-) {
-  color: #35251F !important;
-}
-
-/* Keep primary button text white */
-html.light .ph a.ph-button,
-html.light .ph a.ph-button *,
-html.light .ph button.ph-button,
-html.light .ph button.ph-button * {
-  color: #FFFFFF !important;
-}
-
-/* Muted text */
-html.light .ph :is(.ph-muted, .ph-description, .ph-subtitle) {
+html.light body .ph .ph-product-card .ph-product-location {
   color: #76665E !important;
 }
 
-/* ==========================================
-   FINAL LIGHT MODE TEXT VISIBILITY FIX
-   Must stay at the VERY END of this file
-========================================== */
-
-/* NAVBAR */
-html.light body .ph .ph-header,
-html.light body .ph header,
-html.light body > header {
-  background: #FFFDF8 !important;
-  color: #35251F !important;
+html.light body .ph .ph-product-card .ph-details-link {
+  color: #D9232E !important;
   border-color: #E9DCCB !important;
 }
 
-html.light body .ph .ph-header *,
-html.light body .ph header * {
+/* 3. Category cards */
+html.light body .ph .ph-category-card {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
+  border: 1px solid #E9DCCB !important;
+  box-shadow: 0 4px 14px rgba(65, 40, 25, 0.06) !important;
+}
+
+html.light body .ph .ph-category-card :is(span, p, h3, h4) {
   color: #35251F !important;
 }
 
-html.light body .ph .ph-header a:hover,
-html.light body .ph header a:hover,
-html.light body .ph .ph-header nav a:hover,
-html.light body .ph header nav a:hover {
-  color: #D9232E !important;
+html.light body .ph .ph-category-card svg {
+  color: #A84A16 !important;
 }
 
-/* NAVBAR LOGO */
-html.light body .ph .ph-header .ph-logo > span:last-child,
-html.light body .ph header .ph-logo > span:last-child {
+html.light body .ph .ph-category-card:hover,
+html.light body .ph .ph-category-active {
+  background: #FCE9E5 !important;
+  border-color: #D9232E !important;
+}
+
+/* 4. Collection cards */
+html.light body .ph .ph-collection-card {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
   color: #35251F !important;
+  border: 1px solid #E9DCCB !important;
+  box-shadow: 0 5px 18px rgba(65, 40, 25, 0.08) !important;
 }
 
-html.light body .ph .ph-header .ph-logo > span:last-child em,
-html.light body .ph header .ph-logo > span:last-child em {
-  color: #D9232E !important;
-}
-
-/* MOBILE MENU AND DROPDOWNS */
-html.light body .ph .ph-mobile-menu,
-html.light body .ph .ph-mobile-nav,
-html.light body .ph .ph-nav-dropdown,
-html.light body .ph .ph-user-dropdown {
+html.light body .ph .ph-collection-caption {
   background: #FFFFFF !important;
   color: #35251F !important;
-  border-color: #E9DCCB !important;
 }
 
-html.light body .ph .ph-mobile-menu *,
-html.light body .ph .ph-mobile-nav *,
-html.light body .ph .ph-nav-dropdown *,
-html.light body .ph .ph-user-dropdown * {
+html.light body .ph .ph-collection-caption :is(h3, p, span) {
   color: #35251F !important;
 }
 
-/* FOOTER - ALL TEXT */
-html.light body .ph footer,
-html.light body .ph .ph-footer,
-html.light body > footer {
+/* 5. How it works cards */
+html.light body .ph .ph-step-card {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
+  border: 1px solid #E9DCCB !important;
+  box-shadow: 0 4px 14px rgba(65, 40, 25, 0.06) !important;
+}
+
+html.light body .ph .ph-step-card :is(h3, h4, p, span) {
+  color: #35251F !important;
+}
+
+html.light body .ph .ph-step-icon {
+  background: #FCE9E5 !important;
+  color: #D9232E !important;
+  border-color: #F2D0C9 !important;
+}
+
+html.light body .ph .ph-step-icon svg {
+  color: #D9232E !important;
+}
+
+/* 6. Why Choose PizzaHub cards */
+html.light body .ph .ph-benefit-card {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
+  border: 1px solid #E9DCCB !important;
+  box-shadow: 0 4px 14px rgba(65, 40, 25, 0.06) !important;
+}
+
+html.light body .ph .ph-benefit-card :is(h3, h4, p, span) {
+  color: #35251F !important;
+}
+
+html.light body .ph .ph-benefit-icon {
+  background: #FCE9E5 !important;
+  color: #D9232E !important;
+}
+
+html.light body .ph .ph-benefit-icon svg {
+  color: #D9232E !important;
+}
+
+/* 7. All homepage section headings and descriptions */
+html.light body .ph main > section:not(.ph-hero) .ph-section-heading h2,
+html.light body .ph main > section:not(.ph-hero) .ph-heading-row h2 {
+  color: #35251F !important;
+}
+
+html.light body .ph main > section:not(.ph-hero) .ph-section-heading em,
+html.light body .ph main > section:not(.ph-hero) .ph-heading-row em {
+  color: #D9232E !important;
+}
+
+html.light body .ph main > section:not(.ph-hero) .ph-section-heading p {
+  color: #76665E !important;
+}
+
+/* 8. Search and filters */
+html.light body .ph .ph-menu-filters input,
+html.light body .ph .ph-menu-filters select,
+html.light body .ph .ph-search,
+html.light body .ph .ph-select {
+  background: #FFFFFF !important;
+  color: #35251F !important;
+  border-color: #DDCDBB !important;
+}
+
+html.light body .ph .ph-menu-filters input::placeholder {
+  color: #948278 !important;
+}
+
+/* 9. View all and other primary buttons */
+html.light body .ph .ph-view-all-button,
+html.light body .ph .ph-button,
+html.light body .ph .ph-cart-button {
+  color: #FFFFFF !important;
+}
+
+html.light body .ph .ph-view-all-button *,
+html.light body .ph .ph-button *,
+html.light body .ph .ph-cart-button * {
+  color: #FFFFFF !important;
+}
+
+/* 10. Footer: fix white text on cream background */
+html.light body .ph .ph-footer {
   background: #FFF8EF !important;
+  background-color: #FFF8EF !important;
   color: #35251F !important;
   border-color: #E9DCCB !important;
 }
 
-html.light body .ph footer *,
-html.light body .ph .ph-footer *,
-html.light body > footer * {
-  color: #35251F !important;
+html.light body .ph .ph-footer :is(
+  h1, h2, h3, h4, p, span, a, small
+) {
+  color: #5C4038 !important;
 }
 
-html.light body .ph .ph-footer .ph-logo > span:last-child {
-  color: #35251F !important;
-}
-
-html.light body .ph .ph-footer .ph-logo > span:last-child em {
+html.light body .ph .ph-footer .ph-logo,
+html.light body .ph .ph-footer .ph-logo span,
+html.light body .ph .ph-footer .ph-logo em {
   color: #D9232E !important;
 }
 
@@ -312,367 +849,448 @@ html.light body .ph .ph-footer a:hover {
   color: #D9232E !important;
 }
 
+html.light body .ph .ph-footer-wave {
+  fill: #FFF8EF !important;
+}
+
 html.light body .ph .ph-footer-wave path {
   fill: #FFF8EF !important;
 }
 
-/* ALL MAIN CONTENT TEXT */
-html.light body .ph main,
-html.light body .ph main * {
-  --text-dark: #35251F;
-  --text-muted: #76665E;
-  --text-white: #35251F;
+/* 11. Keep text readable without changing image appearance */
+html.light body .ph .ph-product-card img,
+html.light body .ph .ph-collection-card img {
+  filter: none !important;
 }
 
-/* Override old hardcoded white text */
-html.light body .ph main [class*="text-white"],
-html.light body .ph main [style*="color: white"],
-html.light body .ph main [style*="color:#fff"],
-html.light body .ph main [style*="color: #fff"] {
+/* 12. Consistent hover states */
+html.light body .ph .ph-product-card:hover,
+html.light body .ph .ph-collection-card:hover,
+html.light body .ph .ph-step-card:hover,
+html.light body .ph .ph-benefit-card:hover {
+  border-color: #D9232E !important;
+  box-shadow: 0 8px 22px rgba(65, 40, 25, 0.10) !important;
+}
+
+
+
+
+/* =====================================================
+   FINAL FIX: HOW IT WORKS + WHY CHOOSE PIZZAHUB
+   Must stay at the very end of theme-mode.css
+===================================================== */
+
+/* HOW IT WORKS — entire section */
+html.light .ph #how-it-works {
+  background: #FAF6EE !important;
+  background-color: #FAF6EE !important;
+  background-image: none !important;
   color: #35251F !important;
 }
 
-/* Headings, descriptions and labels */
-html.light body .ph main h1,
-html.light body .ph main h2,
-html.light body .ph main h3,
-html.light body .ph main h4,
-html.light body .ph main h5,
-html.light body .ph main h6,
-html.light body .ph main p,
-html.light body .ph main label,
-html.light body .ph main li,
-html.light body .ph main small {
+/* WHY CHOOSE PIZZAHUB — entire section */
+html.light .ph #about {
+  background: #FAF6EE !important;
+  background-color: #FAF6EE !important;
+  background-image: none !important;
   color: #35251F !important;
 }
 
-/* Keep red accents */
-html.light body .ph main .ph-accent,
-html.light body .ph main .ph-highlight,
-html.light body .ph main .text-red-500,
-html.light body .ph main .text-red-600,
-html.light body .ph main .text-red-700 {
+/* Both section containers */
+html.light .ph #how-it-works .ph-container,
+html.light .ph #about .ph-container {
+  background: transparent !important;
+  color: #35251F !important;
+}
+
+/* How it works cards */
+html.light .ph #how-it-works .ph-step-card {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  color: #35251F !important;
+  border: 1px solid #E9DCCB !important;
+  box-shadow: 0 5px 18px rgba(65, 40, 25, 0.07) !important;
+}
+
+/* Why choose cards */
+html.light .ph #about .ph-benefit-card {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  background-image: none !important;
+  color: #35251F !important;
+  border: 1px solid #E9DCCB !important;
+  box-shadow: 0 5px 18px rgba(65, 40, 25, 0.07) !important;
+}
+
+/* Card headings */
+html.light .ph #how-it-works .ph-step-card h3,
+html.light .ph #about .ph-benefit-card h3 {
+  color: #35251F !important;
+}
+
+/* Card descriptions */
+html.light .ph #how-it-works .ph-step-card p,
+html.light .ph #about .ph-benefit-card p {
+  color: #76665E !important;
+}
+
+/* Step number and icon */
+html.light .ph #how-it-works .ph-step-icon {
+  background: #FCE9E5 !important;
+  background-color: #FCE9E5 !important;
+  color: #D9232E !important;
+  border: 1px solid #F2D0C9 !important;
+}
+
+html.light .ph #how-it-works .ph-step-icon svg {
   color: #D9232E !important;
 }
 
-/* Keep button text readable */
-html.light body .ph main button,
-html.light body .ph main a.ph-button,
-html.light body .ph main button *,
-html.light body .ph main a.ph-button * {
+html.light .ph #how-it-works .ph-step-icon span {
+  background: #D9232E !important;
   color: #FFFFFF !important;
 }
 
-/* Theme toggle */
-html.light body .ph .ph-theme-toggle,
-html.light body .ph .ph-theme-toggle * {
-  color: #A84A16 !important;
+/* Why choose icons */
+html.light .ph #about .ph-benefit-icon {
+  background: #FCE9E5 !important;
+  background-color: #FCE9E5 !important;
+  color: #D9232E !important;
+  border: 1px solid #F2D0C9 !important;
 }
 
-/* Forms */
-html.light body input,
-html.light body textarea,
-html.light body select {
+html.light .ph #about .ph-benefit-icon svg {
+  color: #D9232E !important;
+}
+
+/* Section headings */
+html.light .ph #how-it-works h2,
+html.light .ph #about h2 {
   color: #35251F !important;
+}
+
+html.light .ph #how-it-works h2 em,
+html.light .ph #about h2 em {
+  color: #D9232E !important;
+}
+
+/* Section subtitles */
+html.light .ph #how-it-works .ph-section-heading p,
+html.light .ph #about .ph-section-heading p {
+  color: #76665E !important;
+}
+
+/* Hover states */
+html.light .ph #how-it-works .ph-step-card:hover,
+html.light .ph #about .ph-benefit-card:hover {
   background: #FFFFFF !important;
+  border-color: #D9232E !important;
+  box-shadow: 0 8px 22px rgba(65, 40, 25, 0.10) !important;
+}
+
+
+
+/* =====================================================
+   SIGN IN PAGE — LIGHT THEME FIX
+===================================================== */
+
+/* Main sign-in page background */
+html.light body main.min-h-screen[class*="bg-[#080808"] {
+  background: #FAF6EE !important;
+  background-color: #FAF6EE !important;
+  color: #35251F !important;
+}
+
+/* Login card */
+html.light body main.min-h-screen[class*="bg-[#080808"] > div[class*="max-w-[460px]"] {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
+  border: 1px solid #E9DCCB !important;
+  box-shadow: 0 15px 50px rgba(65, 40, 25, 0.10) !important;
+}
+
+/* Heading and description */
+html.light body main.min-h-screen[class*="bg-[#080808"] h1 {
+  color: #35251F !important;
+}
+
+html.light body main.min-h-screen[class*="bg-[#080808"] p {
+  color: #76665E !important;
+}
+
+/* Form labels */
+html.light body main.min-h-screen[class*="bg-[#080808"] label > span {
+  color: #35251F !important;
+}
+
+/* Email and password input wrappers */
+html.light body main.min-h-screen[class*="bg-[#080808"] label > div {
+  background: #FFFDF8 !important;
+  background-color: #FFFDF8 !important;
   border-color: #DDCDBB !important;
 }
 
-
-/* ==========================================
-   PIZZAHUB LIGHT MODE - PREMIUM TEXT COLORS
-========================================== */
-
-/* Main content: stronger readable text */
-html.light body .ph main,
-html.light body .ph main * {
-  opacity: 1 !important;
+/* Input fields */
+html.light body main.min-h-screen[class*="bg-[#080808"] input {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #35251F !important;
+  -webkit-text-fill-color: #35251F !important;
 }
 
-html.light body .ph main p,
-html.light body .ph main li,
-html.light body .ph main label,
-html.light body .ph main span,
-html.light body .ph main a:not(.ph-button),
-html.light body .ph main div {
-  color: #24130F !important;
+html.light body main.min-h-screen[class*="bg-[#080808"] input::placeholder {
+  color: #948278 !important;
+  -webkit-text-fill-color: #948278 !important;
 }
 
-/* Headings: PizzaHub deep red */
-html.light body .ph main h1,
-html.light body .ph main h2,
-html.light body .ph main h3,
-html.light body .ph main h4,
-html.light body .ph main h5,
-html.light body .ph main h6 {
-  color: #C8102E !important;
-  opacity: 1 !important;
+/* Input icons */
+html.light body main.min-h-screen[class*="bg-[#080808"] label svg {
+  color: #D9232E !important;
 }
 
-/* Description and supporting text */
-html.light body .ph main p,
-html.light body .ph main small,
-html.light body .ph main .ph-description,
-html.light body .ph main .ph-subtitle {
+/* Password visibility button */
+html.light body main.min-h-screen[class*="bg-[#080808"] label button {
+  color: #76665E !important;
+}
+
+html.light body main.min-h-screen[class*="bg-[#080808"] label button:hover {
+  color: #D9232E !important;
+}
+
+/* Back to Home */
+html.light body main.min-h-screen[class*="bg-[#080808"] > a {
   color: #5C4038 !important;
 }
 
-/* Navbar text */
-html.light body .ph .ph-header *,
-html.light body .ph header * {
+html.light body main.min-h-screen[class*="bg-[#080808"] > a:hover {
+  color: #D9232E !important;
+}
+
+/* PizzaHub logo text */
+html.light body main.min-h-screen[class*="bg-[#080808"] a span {
+  color: #35251F;
+}
+
+html.light body main.min-h-screen[class*="bg-[#080808"] a span span {
+  color: #D9232E !important;
+}
+
+/* Sign In button stays red with white text */
+html.light body main.min-h-screen[class*="bg-[#080808"] form button[type="submit"] {
+  background: #C9151B !important;
+  background-color: #C9151B !important;
+  color: #FFFFFF !important;
+  border-color: #C9151B !important;
+}
+
+html.light body main.min-h-screen[class*="bg-[#080808"] form button[type="submit"] * {
+  color: #FFFFFF !important;
+}
+
+/* OR divider */
+html.light body main.min-h-screen[class*="bg-[#080808"] .h-px {
+  background: #E9DCCB !important;
+}
+
+html.light body main.min-h-screen[class*="bg-[#080808"] .my-7 span {
+  color: #948278 !important;
+}
+
+/* Google login button */
+html.light body main.min-h-screen[class*="bg-[#080808"] button:not([type="submit"]) {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border-color: #DDCDBB !important;
+  color: #35251F !important;
+}
+
+html.light body main.min-h-screen[class*="bg-[#080808"] button:not([type="submit"]):hover {
+  border-color: #D9232E !important;
+}
+
+/* Google G */
+html.light body main.min-h-screen[class*="bg-[#080808"] button span {
+  color: #D9232E !important;
+}
+
+/* Create account link */
+html.light body main.min-h-screen[class*="bg-[#080808"] a.font-bold {
+  color: #D9232E !important;
+}
+
+/* Error message */
+html.light body main.min-h-screen[class*="bg-[#080808"] [role="alert"] {
+  background: #FFF0ED !important;
+  color: #B42318 !important;
+  border-color: #E9A49A !important;
+}
+
+/* Background glow */
+html.light body main.min-h-screen[class*="bg-[#080808"] .pointer-events-none {
+  opacity: 0.35;
+}
+
+
+
+
+/* ADMIN DASHBOARD FOOTER — LIGHT THEME */
+html.light body .ph-admin-dashboard footer.mt-10 {
+  background: #FFF8EF !important;
+  background-color: #FFF8EF !important;
+  color: #35251F !important;
+  border-top-color: #E9DCCB !important;
   opacity: 1 !important;
-  color: #24130F !important;
+}
+
+html.light body .ph-admin-dashboard footer.mt-10.text-white\/60 {
+  color: #35251F !important;
+  -webkit-text-fill-color: #35251F !important;
+  opacity: 1 !important;
 }
 
 /* Footer text */
-html.light body .ph footer *,
-html.light body .ph .ph-footer * {
+html.light body .ph-admin-dashboard footer.mt-10 * {
+  color: #35251F !important;
+  -webkit-text-fill-color: #35251F !important;
   opacity: 1 !important;
-  color: #24130F !important;
-}
-
-/* Red brand accents */
-html.light body .ph .ph-logo > span:last-child em,
-html.light body .ph .ph-footer .ph-logo > span:last-child em {
-  color: #C8102E !important;
-}
-
-/* Preserve white text on red buttons */
-html.light body .ph main .ph-button,
-html.light body .ph main .ph-button *,
-html.light body .ph .ph-nav-actions > a.ph-button,
-html.light body .ph .ph-nav-actions > a.ph-button * {
-  color: #FFFFFF !important;
-}
-
-/* Keep theme toggle icon */
-html.light body .ph .ph-theme-toggle,
-html.light body .ph .ph-theme-toggle * {
-  color: #A84A16 !important;
 }
 
 
-/* ==========================================
-   PIZZAHUB LIGHT MODE - RED TEXT THEME
-========================================== */
 
-html.light body .ph,
-html.light body .ph * {
-  color: #E51E2B !important;
+/* =====================================================
+   ADMIN ANALYTICS — COMPLETE LIGHT THEME FIX
+===================================================== */
+
+/* Analytics page background and text */
+html.light body main.min-h-screen[class*="bg-[#080808"] {
+  background: #FAF6EE !important;
+  background-color: #FAF6EE !important;
+  color: #35251F !important;
 }
 
-/* Keep red button labels white for contrast */
-html.light body .ph .ph-button,
-html.light body .ph .ph-button *,
-html.light body .ph button[type="submit"],
-html.light body .ph button[type="submit"] *,
-html.light body .ph .ph-nav-actions > a:last-child,
-html.light body .ph .ph-nav-actions > a:last-child * {
-  color: #FFFFFF !important;
+/* Analytics sidebar */
+html.light body main.min-h-screen[class*="bg-[#080808"] aside {
+  background: #FFFDF8 !important;
+  color: #35251F !important;
+  border-color: #E9DCCB !important;
 }
 
-/* Input text */
-html.light body .ph input,
-html.light body .ph textarea,
-html.light body .ph select {
-  color: #B71925 !important;
+html.light body main.min-h-screen[class*="bg-[#080808"] aside p {
+  color: #76665E !important;
 }
 
-/* Placeholder */
-html.light body .ph input::placeholder,
-html.light body .ph textarea::placeholder {
-  color: #A94A50 !important;
-}
-
-/* Keep the theme toggle icon visible */
-html.light body .ph .ph-theme-toggle,
-html.light body .ph .ph-theme-toggle * {
-  color: #B71925 !important;
-}
-
-
-/* Keep button text readable */
-html.light body .ph main section button,
-html.light body .ph main section button *,
-html.light body .ph main section .ph-button,
-html.light body .ph main section .ph-button * {
-  color: #FFFFFF !important;
-}
-
-/* Form fields */
-html.light body .ph main section input,
-html.light body .ph main section textarea,
-html.light body .ph main section select {
-  color: #B71925 !important;
-}
-
-
-/* Category section heading and subtitle */
-html.light body .ph #categories h1,
-html.light body .ph #categories h2,
-html.light body .ph #categories h3,
-html.light body .ph #categories p {
-  color: #E51B23 !important;
-}
-
-/* Category cards */
-html.light body .ph #categories .ph-category-card {
+/* Analytics content panels and metric cards */
+html.light body main.min-h-screen[class*="bg-[#080808"] section.rounded-2xl {
   background: #FFFFFF !important;
-  color: #E51B23 !important;
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
+  border-color: #E9DCCB !important;
+  box-shadow: 0 5px 18px rgba(65, 40, 25, 0.06) !important;
+}
+
+/* Metric card text */
+html.light body main.min-h-screen[class*="bg-[#080808"] section.rounded-2xl p,
+html.light body main.min-h-screen[class*="bg-[#080808"] section.rounded-2xl h2 {
+  color: #35251F !important;
+}
+
+/* Order Performance — three status cards */
+html.light body main.min-h-screen[class*="bg-[#080808"] .grid.grid-cols-3 > div.rounded-2xl {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
   border: 1px solid #E9DCCB !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+  box-shadow: 0 4px 14px rgba(65, 40, 25, 0.06) !important;
 }
 
-/* Category card icons and names */
-html.light body .ph #categories .ph-category-card svg,
-html.light body .ph #categories .ph-category-card span {
-  color: #E51B23 !important;
-  stroke: #E51B23 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-}
-
-/* Active category */
-html.light body .ph #categories .ph-category-card.ph-category-active {
-  background: #E51B23 !important;
-  color: #FFFFFF !important;
-}
-
-html.light body .ph #categories .ph-category-card.ph-category-active svg,
-html.light body .ph #categories .ph-category-card.ph-category-active span {
-  color: #FFFFFF !important;
-  stroke: #FFFFFF !important;
-}
-
-
-/* LIGHT MODE: RED TEXT ONLY - PRESERVE ALL LAYOUTS */
-
-/* All text inside main content */
-html.light body main :is(
-  h1, h2, h3, h4, h5, h6,
-  p, a, span, li, label, small,
-  strong, em, b, blockquote, figcaption
-) {
-  color: #E51B23 !important;
-}
-
-/* Keep navbar and footer unchanged */
-html.light body header,
-html.light body header *,
-html.light body footer,
-html.light body footer * {
-  color: inherit;
-}
-
-/* Preserve button text contrast */
-html.light body main button,
-html.light body main button *,
-html.light body main [role="button"],
-html.light body main [role="button"] * {
-  color: #FFFFFF !important;
-}
-
-/* Preserve readable form text */
-html.light body main input,
-html.light body main textarea,
-html.light body main select {
-  color: #B71925 !important;
-}
-
-
-/* ADMIN DASHBOARD - LIGHT MODE TEXT VISIBILITY */
-html.light .ph-admin-dashboard h1,
-html.light .ph-admin-dashboard h2,
-html.light .ph-admin-dashboard h3,
-html.light .ph-admin-dashboard h4,
-html.light .ph-admin-dashboard p,
-html.light .ph-admin-dashboard span,
-html.light .ph-admin-dashboard a,
-html.light .ph-admin-dashboard button {
+/* Percentage circle inner area */
+html.light body main.min-h-screen[class*="bg-[#080808"] .grid.grid-cols-3 > div > div > div {
+  background: #FFFFFF !important;
   color: #35251F !important;
 }
 
-html.light .ph-admin-dashboard .text-white {
+/* Accepted / Rejected / Pending labels */
+html.light body main.min-h-screen[class*="bg-[#080808"] .grid.grid-cols-3 > div > p {
   color: #35251F !important;
 }
 
+/* Orders count */
+html.light body main.min-h-screen[class*="bg-[#080808"] .grid.grid-cols-3 > div p.text-slate-500 {
+  color: #76665E !important;
+}
 
-/* ADMIN DASHBOARD - LIGHT MODE TEXT FIX */
-html.light .ph-admin-dashboard h2,
-html.light .ph-admin-dashboard footer,
-html.light .ph-admin-dashboard footer *,
-html.light .ph-admin-dashboard main button,
-html.light .ph-admin-dashboard main button * {
+/* Cancelled orders text */
+html.light body main.min-h-screen[class*="bg-[#080808"] section p.text-white\/70 {
+  color: #76665E !important;
+}
+
+/* Recent Orders table */
+html.light body main.min-h-screen[class*="bg-[#080808"] table {
+  background: #FFFFFF !important;
   color: #35251F !important;
 }
 
-html.light .ph-admin-dashboard main button svg {
-  color: #E51B23 !important;
-}
-
-
-/* ADMIN DASHBOARD - LIGHT MODE HOVER AND BRAND FIX */
-html.light .ph-admin-dashboard button:hover,
-html.light .ph-admin-dashboard a:hover {
-  background-color: #FCE8E8 !important;
-  border-color: #E51B23 !important;
+/* Table header */
+html.light body main.min-h-screen[class*="bg-[#080808"] thead,
+html.light body main.min-h-screen[class*="bg-[#080808"] thead.bg-\[\#101010\] {
+  background: #F5EBDD !important;
   color: #35251F !important;
 }
 
-html.light .ph-admin-dashboard footer {
-  color: #E51B23 !important;
+html.light body main.min-h-screen[class*="bg-[#080808"] thead th {
+  background: #F5EBDD !important;
+  color: #5C4038 !important;
+  font-weight: 700 !important;
 }
 
+/* Table body */
+html.light body main.min-h-screen[class*="bg-[#080808"] tbody tr {
+  background: #FFFFFF !important;
+  border-color: #E9DCCB !important;
+}
 
-/* ADMIN DASHBOARD - LIGHT MODE HOVER AND BRAND FIX */
-html.light .ph-admin-dashboard button:hover,
-html.light .ph-admin-dashboard a:hover {
-  background-color: #FCE8E8 !important;
-  border-color: #E51B23 !important;
+html.light body main.min-h-screen[class*="bg-[#080808"] tbody td {
   color: #35251F !important;
 }
 
-html.light .ph-admin-dashboard footer {
-  color: #E51B23 !important;
+/* Pending / Accepted / Rejected status badges */
+html.light body main.min-h-screen[class*="bg-[#080808"] tbody td span.rounded-full {
+  background: #FFF3D9 !important;
+  color: #895B08 !important;
+  border: 1px solid #EBD7A8 !important;
+  font-weight: 700 !important;
 }
 
+/* Accepted */
+html.light body main.min-h-screen[class*="bg-[#080808"] tbody td span.rounded-full:where(:not([data-status="pending"])) {
+  color: #287A50 !important;
+}
 
-/* ==================================================
-   PIZZAHUB - FINAL LIGHT MODE READABILITY FIX
-   Text and hover only. No layout or spacing changes.
-   ================================================== */
-
-/* Main content: readable dark text */
-html.light body main,
-html.light body main * ,
-html.light body [role="main"],
-html.light body [role="main"] *,
-html.light body .ph-admin-dashboard,
-html.light body .ph-admin-dashboard * {
+/* Search input and status filter */
+html.light body main.min-h-screen[class*="bg-[#080808"] input,
+html.light body main.min-h-screen[class*="bg-[#080808"] select {
+  background: #FFFFFF !important;
   color: #35251F !important;
+  border-color: #DDCDBB !important;
 }
 
-/* Headings and links: PizzaHub red */
-html.light body main :is(h1,h2,h3,h4,h5,h6,a),
-html.light body [role="main"] :is(h1,h2,h3,h4,h5,h6,a),
-html.light body .ph-admin-dashboard :is(h1,h2,h3,h4,h5,h6,a) {
-  color: #E51B23 !important;
+html.light body main.min-h-screen[class*="bg-[#080808"] input::placeholder {
+  color: #948278 !important;
 }
 
-/* Buttons and interactive elements: readable hover */
-html.light body main :is(button,a,[role="button"]):hover,
-html.light body [role="main"] :is(button,a,[role="button"]):hover,
-html.light body .ph-admin-dashboard :is(button,a,[role="button"]):hover {
-  background-color: #FCE8E8 !important;
-  color: #35251F !important;
+/* Search icon */
+html.light body main.min-h-screen[class*="bg-[#080808"] section svg {
+  color: #A84A16;
 }
 
-/* Keep navbar and footer unchanged */
-html.light body header,
-html.light body header *,
-html.light body footer,
-html.light body footer * {
-  color: inherit;
+/* Chart labels */
+html.light body main.min-h-screen[class*="bg-[#080808"] section svg text {
+  fill: #76665E !important;
 }
 
+/* Analytics footer */
+html.light body main.min-h-screen[class*="bg-[#080808"] > section > div > p.text-center {
+  color: #76665E !important;
+}

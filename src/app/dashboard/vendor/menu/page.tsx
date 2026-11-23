@@ -190,10 +190,10 @@ export default function VendorMenuPage() {
   const [editingId, setEditingId] =
     useState<string | null>(null);
 
-  const [image, setImage] =
-    useState<File | null>(null);
+  const [images, setImages] =
+    useState<File[]>([]);
 
-  const [preview, setPreview] = useState("");
+  const [previews, setPreviews] = useState<string[]>([]);
 
   const [loading, setLoading] = useState(true);
 
@@ -331,11 +331,13 @@ export default function VendorMenuPage() {
 
   useEffect(() => {
     return () => {
-      if (preview.startsWith("blob:")) {
-        URL.revokeObjectURL(preview);
-      }
+      previews.forEach((preview) => {
+        if (preview.startsWith("blob:")) {
+          URL.revokeObjectURL(preview);
+        }
+      });
     };
-  }, [preview]);
+  }, [previews]);
 
   useEffect(() => {
 
@@ -367,8 +369,8 @@ export default function VendorMenuPage() {
     setForm({ ...emptyForm });
 
     setEditingId(null);
-    setImage(null);
-    setPreview("");
+    setImages([]);
+    setPreviews([]);
     setError("");
 
     if (fileInput.current) {
@@ -399,9 +401,9 @@ export default function VendorMenuPage() {
       location: item.location,
     });
 
-    setImage(null);
+    setImages([]);
 
-    setPreview(item.images?.[0] || "");
+    setPreviews(item.images || []);
 
     setError("");
     setShowForm(true);
@@ -417,45 +419,34 @@ export default function VendorMenuPage() {
 
   }
 
-  function chooseImage(file?: File) {
+  function chooseImages(fileList?: FileList | null) {
+    if (!fileList?.length) return;
 
-    if (!file) return;
+    const selected = Array.from(fileList);
+    const allowed = ["image/jpeg", "image/png", "image/webp"];
 
-    const allowed = [
-      "image/jpeg",
-      "image/png",
-      "image/webp",
-    ];
-
-    if (!allowed.includes(file.type)) {
-
-      toast.error(
-        "Choose a JPG, PNG or WebP image."
-      );
-
-      if (fileInput.current) {
-        fileInput.current.value = "";
-      }
-
+    if (selected.length > 5) {
+      toast.error("You can upload up to 5 images.");
+      if (fileInput.current) fileInput.current.value = "";
       return;
     }
 
-    if (file.size > 5 * 1024 * 1024) {
+    const invalid = selected.find((file) =>
+      !allowed.includes(file.type) || file.size > 5 * 1024 * 1024
+    );
 
+    if (invalid) {
       toast.error(
-        "Image size must be below 5 MB."
+        !allowed.includes(invalid.type)
+          ? "Choose JPG, PNG or WebP images only."
+          : "Each image must be below 5 MB."
       );
-
-      if (fileInput.current) {
-        fileInput.current.value = "";
-      }
-
+      if (fileInput.current) fileInput.current.value = "";
       return;
     }
 
-    setImage(file);
-    setPreview(URL.createObjectURL(file));
-
+    setImages(selected);
+    setPreviews(selected.map((file) => URL.createObjectURL(file)));
   }
 
   // =====================================
@@ -490,7 +481,7 @@ export default function VendorMenuPage() {
       return;
     }
 
-    if (!editingId && !image) {
+    if (!editingId && images.length === 0) {
 
       setError("A product image is required.");
 
@@ -542,7 +533,7 @@ export default function VendorMenuPage() {
         body.append("price", String(data.price));
         body.append("location", data.location);
 
-        body.append("image", image!);
+        images.forEach((file) => body.append("images", file));
 
         await request("/api/menu", {
           method: "POST",
@@ -994,13 +985,18 @@ export default function VendorMenuPage() {
                     }`}
                   >
 
-                    {preview ? (
+                    {previews.length > 0 ? (
 
-                      <img
-                        src={preview}
-                        alt="Menu item preview"
-                        className="h-full w-full object-cover"
-                      />
+                      <div className="grid h-full w-full grid-cols-2 gap-2 p-2">
+                        {previews.slice(0, 4).map((preview, index) => (
+                          <img
+                            key={`${preview}-${index}`}
+                            src={preview}
+                            alt={`Menu item preview ${index + 1}`}
+                            className="h-full min-h-24 w-full rounded-lg object-cover"
+                          />
+                        ))}
+                      </div>
 
                     ) : (
 
@@ -1016,7 +1012,7 @@ export default function VendorMenuPage() {
                         </p>
 
                         <p className="mt-2 text-xs text-white/60">
-                          JPG, PNG, WebP — up to 5 MB
+                          JPG, PNG, WebP — up to 5 images, 5 MB each
                         </p>
 
                       </div>
@@ -1029,13 +1025,10 @@ export default function VendorMenuPage() {
                         ref={fileInput}
                         type="file"
                         accept="image/jpeg,image/png,image/webp"
+                        multiple
                         disabled={saving}
                         className="sr-only"
-                        onChange={event =>
-                          chooseImage(
-                            event.target.files?.[0]
-                          )
-                        }
+                        onChange={event => chooseImages(event.target.files)}
                       />
 
                     )}
@@ -1055,9 +1048,9 @@ export default function VendorMenuPage() {
 
                       <Upload size={18} />
 
-                      {image
-                        ? "Change Image"
-                        : "Choose Image"}
+                      {images.length > 0
+                        ? `Change Images (${images.length}/5)`
+                        : "Choose Images"}
 
                     </button>
 

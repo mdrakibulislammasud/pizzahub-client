@@ -77,7 +77,7 @@ export default function AvailabilityToggle({
       }
 
       const response = await fetch(
-        `${API}/api/menu/vendor/${encodeURIComponent(item._id)}/availability`,
+        `${API}/api/menu/${encodeURIComponent(item._id)}`,
         {
           method: "PATCH",
 
