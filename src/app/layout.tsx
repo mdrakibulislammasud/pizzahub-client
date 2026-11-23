@@ -1,4 +1,5 @@
-﻿import DashboardAnalyticsShortcut from "./components/DashboardAnalyticsShortcut";
+﻿
+import DashboardAnalyticsShortcut from "./components/DashboardAnalyticsShortcut";
 import TrackOrderHomeButton from "./components/TrackOrderHomeButton";
 import AppThemeProvider from "./components/AppThemeProvider";
 
@@ -17,6 +18,7 @@ import "./pizzahub-desktop-links.css";
 import "./pizzahub-mobile-hero.css";
 import "./pizzahub-track-home.css";
 import "./theme-mode.css";
+import "./pizza-image-fix.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -70,4 +72,3 @@ export default function RootLayout({
     </html>
   );
 }
-

@@ -1,6 +1,6 @@
 
 /* =========================================================
-   PIZZAHUB — GLOBAL LIGHT & DARK THEME
+   PIZZAHUB ï¿½ GLOBAL LIGHT & DARK THEME
    Light: Warm cream, white surfaces, dark readable text
    Dark: Existing dark design remains unchanged
 ========================================================= */
@@ -880,7 +880,7 @@ html.light body .ph .ph-benefit-card:hover {
    Must stay at the very end of theme-mode.css
 ===================================================== */
 
-/* HOW IT WORKS — entire section */
+/* HOW IT WORKS ï¿½ entire section */
 html.light .ph #how-it-works {
   background: #FAF6EE !important;
   background-color: #FAF6EE !important;
@@ -888,7 +888,7 @@ html.light .ph #how-it-works {
   color: #35251F !important;
 }
 
-/* WHY CHOOSE PIZZAHUB — entire section */
+/* WHY CHOOSE PIZZAHUB ï¿½ entire section */
 html.light .ph #about {
   background: #FAF6EE !important;
   background-color: #FAF6EE !important;
@@ -992,7 +992,7 @@ html.light .ph #about .ph-benefit-card:hover {
 
 
 /* =====================================================
-   SIGN IN PAGE — LIGHT THEME FIX
+   SIGN IN PAGE ï¿½ LIGHT THEME FIX
 ===================================================== */
 
 /* Main sign-in page background */
@@ -1135,7 +1135,7 @@ html.light body main.min-h-screen[class*="bg-[#080808"] .pointer-events-none {
 
 
 
-/* ADMIN DASHBOARD FOOTER — LIGHT THEME */
+/* ADMIN DASHBOARD FOOTER ï¿½ LIGHT THEME */
 html.light body .ph-admin-dashboard footer.mt-10 {
   background: #FFF8EF !important;
   background-color: #FFF8EF !important;
@@ -1160,7 +1160,7 @@ html.light body .ph-admin-dashboard footer.mt-10 * {
 
 
 /* =====================================================
-   ADMIN ANALYTICS — COMPLETE LIGHT THEME FIX
+   ADMIN ANALYTICS ï¿½ COMPLETE LIGHT THEME FIX
 ===================================================== */
 
 /* Analytics page background and text */
@@ -1196,7 +1196,7 @@ html.light body main.min-h-screen[class*="bg-[#080808"] section.rounded-2xl h2 {
   color: #35251F !important;
 }
 
-/* Order Performance — three status cards */
+/* Order Performance ï¿½ three status cards */
 html.light body main.min-h-screen[class*="bg-[#080808"] .grid.grid-cols-3 > div.rounded-2xl {
   background: #FFFFFF !important;
   background-color: #FFFFFF !important;
@@ -1293,4 +1293,426 @@ html.light body main.min-h-screen[class*="bg-[#080808"] section svg text {
 /* Analytics footer */
 html.light body main.min-h-screen[class*="bg-[#080808"] > section > div > p.text-center {
   color: #76665E !important;
+}
+
+/* =========================================================
+   PIZZAHUB â€” FINAL LIGHT THEME PATCH
+   Navbar, Auth, Featured Menu, Filters and Rating
+========================================================= */
+
+/* 1. NAVBAR BRAND LOGO â€” PizzaHub */
+html.light .ph .ph-header,
+html.light .ph .ph-header .ph-nav {
+  background: #FFFDF8 !important;
+  color: #35251F !important;
+}
+
+html.light .ph .ph-header .ph-logo,
+html.light .ph .ph-header .ph-logo > span:not(.ph-logo-icon) {
+  color: #35251F !important;
+  -webkit-text-fill-color: #35251F !important;
+}
+
+html.light .ph .ph-header .ph-logo em {
+  color: #D9232E !important;
+  -webkit-text-fill-color: #D9232E !important;
+}
+
+html.light .ph .ph-header .ph-logo-icon {
+  background: #D9232E !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  border-color: #D9232E !important;
+}
+
+html.light .ph .ph-header .ph-nav-links a,
+html.light .ph .ph-header .ph-nav-actions .ph-sign-in {
+  color: #35251F !important;
+  -webkit-text-fill-color: #35251F !important;
+}
+
+html.light .ph .ph-header .ph-nav-links a:hover,
+html.light .ph .ph-header .ph-nav-actions .ph-sign-in:hover {
+  color: #D9232E !important;
+}
+
+/* 2. FOOTER LOGO */
+html.light .ph .ph-footer .ph-logo {
+  color: #35251F !important;
+}
+
+html.light .ph .ph-footer .ph-logo-icon {
+  background: #D9232E !important;
+  color: #FFFFFF !important;
+}
+
+html.light .ph .ph-footer .ph-logo em {
+  color: #D9232E !important;
+}
+
+/* 3. SIGN IN AND SIGN UP â€” WHOLE PAGE */
+html.light body main.min-h-screen.bg-\[\#080808\] {
+  background: #FAF6EE !important;
+  background-color: #FAF6EE !important;
+  color: #35251F !important;
+}
+
+/* Auth card */
+html.light body main.min-h-screen.bg-\[\#080808\] > div[class*="max-w-"] {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
+  border-color: #E9DCCB !important;
+  box-shadow: 0 15px 45px rgba(65, 40, 25, 0.09) !important;
+}
+
+/* Auth logo â€” P mark */
+html.light body main.min-h-screen .ph-brand-mark {
+  background: #D9232E !important;
+  color: #FFFFFF !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+}
+
+/* Auth logo â€” PizzaHub text */
+html.light body main.min-h-screen .ph-brand-mark + span,
+html.light body main.min-h-screen .ph-brand-mark + span:first-of-type {
+  color: #35251F !important;
+  -webkit-text-fill-color: #35251F !important;
+}
+
+html.light body main.min-h-screen .ph-brand-mark + span span {
+  color: #D9232E !important;
+  -webkit-text-fill-color: #D9232E !important;
+}
+
+/* Auth headings and paragraphs */
+html.light body main.min-h-screen h1,
+html.light body main.min-h-screen h2,
+html.light body main.min-h-screen legend {
+  color: #35251F !important;
+}
+
+html.light body main.min-h-screen p,
+html.light body main.min-h-screen label {
+  color: #5C4038;
+}
+
+/* Back to home */
+html.light body main.min-h-screen > a {
+  color: #5C4038 !important;
+}
+
+/* 4. SIGN UP â€” INPUT WRAPPERS */
+html.light body main.min-h-screen .rounded-xl.border.border-\[\#351010\] {
+  background: #FFFDF8 !important;
+  background-color: #FFFDF8 !important;
+  border-color: #DDCDBB !important;
+}
+
+/* Sign-up input text */
+html.light body main.min-h-screen input {
+  color: #35251F !important;
+  -webkit-text-fill-color: #35251F !important;
+  caret-color: #D9232E !important;
+}
+
+html.light body main.min-h-screen input::placeholder {
+  color: #948278 !important;
+  -webkit-text-fill-color: #948278 !important;
+}
+
+/* Input icons */
+html.light body main.min-h-screen label svg {
+  color: #A84A16 !important;
+}
+
+/* Password visibility icons */
+html.light body main.min-h-screen label button {
+  color: #76665E !important;
+}
+
+/* Account type buttons */
+html.light body main.min-h-screen fieldset button {
+  background: #FFFFFF !important;
+  color: #35251F !important;
+  border-color: #DDCDBB !important;
+}
+
+html.light body main.min-h-screen fieldset button[aria-pressed="true"] {
+  background: #FCE9E5 !important;
+  color: #35251F !important;
+  border-color: #D9232E !important;
+}
+
+html.light body main.min-h-screen fieldset button svg {
+  color: #D9232E !important;
+}
+
+html.light body main.min-h-screen fieldset button span {
+  color: #35251F !important;
+}
+
+/* File upload */
+html.light body main.min-h-screen input[type="file"] {
+  color: #5C4038 !important;
+}
+
+/* Password requirement text */
+html.light body main.min-h-screen form p,
+html.light body main.min-h-screen form li {
+  color: #76665E !important;
+}
+
+/* Auth submit button */
+html.light body main.min-h-screen form button[type="submit"] {
+  background: #C9151B !important;
+  color: #FFFFFF !important;
+  border-color: #C9151B !important;
+}
+
+html.light body main.min-h-screen form button[type="submit"] * {
+  color: #FFFFFF !important;
+}
+
+/* Google login */
+html.light body main.min-h-screen button:not([type="submit"]) {
+  color: #35251F !important;
+}
+
+html.light body main.min-h-screen .border-\[\#351010\] button {
+  background: #FFFFFF !important;
+  color: #35251F !important;
+  border-color: #DDCDBB !important;
+}
+
+/* Create account / Sign in links */
+html.light body main.min-h-screen a.font-bold,
+html.light body main.min-h-screen a[href="/sign-in"],
+html.light body main.min-h-screen a[href="/sign-up"] {
+  color: #D9232E !important;
+}
+
+/* 5. FEATURED MENU â€” SECTION */
+html.light .ph .ph-menu-section,
+html.light .ph #menu {
+  background: #FAF6EE !important;
+  background-color: #FAF6EE !important;
+  color: #35251F !important;
+}
+
+/* Menu heading */
+html.light .ph #menu h1,
+html.light .ph #menu h2,
+html.light .ph #menu h3 {
+  color: #35251F !important;
+}
+
+html.light .ph #menu .ph-section-heading em {
+  color: #D9232E !important;
+}
+
+html.light .ph #menu .ph-section-heading p {
+  color: #76665E !important;
+}
+
+/* 6. SEARCH BOX */
+html.light .ph #menu .ph-search {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  border: 1px solid #DDCDBB !important;
+  color: #35251F !important;
+  box-shadow: 0 3px 12px rgba(65, 40, 25, 0.04) !important;
+}
+
+html.light .ph #menu .ph-search input,
+html.light .ph #menu .ph-search input[type="search"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #35251F !important;
+  -webkit-text-fill-color: #35251F !important;
+  caret-color: #D9232E !important;
+}
+
+html.light .ph #menu .ph-search input::placeholder {
+  color: #948278 !important;
+  -webkit-text-fill-color: #948278 !important;
+}
+
+html.light .ph #menu .ph-search svg {
+  color: #A84A16 !important;
+}
+
+html.light .ph #menu .ph-search button {
+  color: #76665E !important;
+}
+
+/* 7. ALL CATEGORY / LOCATION / SORT SELECTS */
+html.light .ph #menu select.ph-select {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
+  border: 1px solid #DDCDBB !important;
+  -webkit-text-fill-color: #35251F !important;
+  box-shadow: 0 3px 12px rgba(65, 40, 25, 0.04) !important;
+}
+
+html.light .ph #menu select.ph-select option {
+  background: #FFFFFF !important;
+  color: #35251F !important;
+}
+
+/* 8. CATEGORY CARDS â€” MEAT LOVERS INCLUDED */
+html.light .ph .ph-category-card {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
+  border: 1px solid #E9DCCB !important;
+}
+
+html.light .ph .ph-category-card span {
+  color: #35251F !important;
+  -webkit-text-fill-color: #35251F !important;
+}
+
+html.light .ph .ph-category-card svg {
+  color: #A84A16 !important;
+}
+
+html.light .ph .ph-category-card.ph-category-active {
+  background: #FCE9E5 !important;
+  border-color: #D9232E !important;
+}
+
+html.light .ph .ph-category-card.ph-category-active span {
+  color: #B71016 !important;
+}
+
+/* 9. PRODUCT CARD CATEGORY LABELS */
+html.light .ph .ph-product-card .ph-category-badge {
+  background: #FFF0E5 !important;
+  color: #8B321F !important;
+  border: 1px solid #E9DCCB !important;
+}
+
+html.light .ph .ph-product-card .ph-category-badge * {
+  color: #8B321F !important;
+}
+
+/* 10. RATING STARS AND RATING LABELS */
+html.light .ph .ph-product-card [aria-label*="rating"],
+html.light .ph .ph-product-card [title*="rating"] {
+  color: #8B5A08 !important;
+}
+
+html.light .ph .ph-product-card svg[class*="star"],
+html.light .ph .ph-product-card svg {
+  color: #D99A19;
+}
+
+html.light .ph .ph-product-card .ph-rating,
+html.light .ph .ph-product-card .ph-rating span {
+  color: #76520B !important;
+}
+
+/* Rating/filter controls, if present */
+html.light .ph select,
+html.light .ph [role="combobox"],
+html.light .ph [role="listbox"],
+html.light .ph [role="option"] {
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
+  border-color: #DDCDBB !important;
+}
+
+html.light .ph [role="option"]:hover,
+html.light .ph [role="option"][aria-selected="true"] {
+  background: #FCE9E5 !important;
+  color: #B71016 !important;
+}
+
+/* 11. FEATURED MENU PRODUCT CARDS */
+html.light .ph .ph-product-card,
+html.light .ph .ph-product-body {
+  background: #FFFFFF !important;
+  background-color: #FFFFFF !important;
+  color: #35251F !important;
+  border-color: #E9DCCB !important;
+}
+
+html.light .ph .ph-product-card h3,
+html.light .ph .ph-product-card p,
+html.light .ph .ph-product-card span {
+  color: #35251F !important;
+}
+
+html.light .ph .ph-product-card .ph-product-location {
+  color: #76665E !important;
+}
+
+/* 12. Keep images and logo mark intact */
+html.light .ph .ph-product-card img,
+html.light .ph .ph-collection-card img {
+  filter: none !important;
+}
+
+html.light .ph .ph-logo-icon {
+  background: #D9232E !important;
+  color: #FFFFFF !important;
+}
+/* LIGHT MODE â€” FIX PIZZAHUB LOGO MARK */
+
+/* Homepage navbar logo */
+html.light body .ph .ph-header .ph-logo .ph-logo-icon {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  width: 42px !important;
+  height: 42px !important;
+  min-width: 42px !important;
+
+  background-color: #C9151B !important;
+  color: #FFFFFF !important;
+
+  font-size: 25px !important;
+  font-weight: 800 !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+  flex-shrink: 0 !important;
+  border-radius: 10px !important;
+}
+
+/* Sign In and Sign Up logo */
+html.light body main .ph-brand-mark {
+  display: inline-grid !important;
+  place-items: center !important;
+
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+
+  background-color: #C9151B !important;
+  color: #FFFFFF !important;
+
+  font-size: 32px !important;
+  font-weight: 800 !important;
+
+  opacity: 1 !important;
+  visibility: visible !important;
+  flex-shrink: 0 !important;
+  border-radius: 12px !important;
+}
+
+/* Keep PizzaHub brand text visible */
+html.light body .ph .ph-header .ph-logo > span:last-child {
+  color: #35251F !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+html.light body main a .ph-brand-mark + span {
+  color: #35251F !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
